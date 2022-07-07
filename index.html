@@ -1,7 +1,13 @@
-<!DOCTYPE html>
-<html>
-<body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
-</body>
-</html>
+---
+layout:     default
+title:      Home
+paginator:  True
+---
+
+<section class="recent-posts">
+  <div class="row listrecent">
+    {% for post in paginator.posts %}
+      {% include postbox.html %}          
+    {% endfor %}
+  </div>
+</section>
