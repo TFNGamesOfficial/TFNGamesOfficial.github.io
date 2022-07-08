@@ -15,6 +15,7 @@ by DevNite Team
 There are currently 2 different release dates:
 - 16. August 2025
 - 31. December 2026
+
 We know this is a long time, but we're still trying to fix some bugs and improve game performance.
 
 ### Test header
