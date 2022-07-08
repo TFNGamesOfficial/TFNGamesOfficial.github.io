@@ -1,8 +1,9 @@
 ---
-layout: null
+layout: default
 title: Add-Ons
-weight: 3
-permalink: /addon/
+weight: 2
+permalink: /addons/
 ---
 
-{% include 404.html %}
+{% include addons/search.html %}
+{% include addons/index.html %}
