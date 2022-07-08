@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: null
 title: Add-Ons
 weight: 3
 permalink: /addon/
