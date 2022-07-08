@@ -1,12 +1,12 @@
 ---
-title: DevNite coming soon
-tags: [DevNite, Release, News]
+title: Coming soon in DevNite
+tags: [DevNite, New in the future, News, a, b, c, d, e, f, g]
 style: border
 color: primary
-description: DevNite will be released soon. Check what's planned and read more about the release!
+description: See whats planned for DevNite! We update this blogpost when we plan something new.
 ---
 
-!(https://cdn2.unrealengine.com/Fortnite%2Fblog%2Fhosting-a-private-match%2F12BR_Competitive_Evergreen_NewsHeader-1920x1080-b5b127c8e41010d113f1c003f9a3302e1eca1b95.jpg)
+![DevNite blog](https://cdn2.unrealengine.com/Fortnite%2Fblog%2Fhosting-a-private-match%2F12BR_Competitive_Evergreen_NewsHeader-1920x1080-b5b127c8e41010d113f1c003f9a3302e1eca1b95.jpg)
 by DevNite Team
 
 Here is a overview of things coming in our ext game updates:
