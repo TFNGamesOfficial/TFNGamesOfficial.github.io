@@ -1,6 +1,6 @@
 ---
 title: Coming soon in DevNite
-tags: [DevNite, New in the future, News, a, b, c, d, e, f, g]
+tags: [DevNite, New in the future, News]
 style: border
 color: primary
 description: See whats planned for DevNite! We update this blogpost when we plan something new.
@@ -10,6 +10,9 @@ description: See whats planned for DevNite! We update this blogpost when we plan
 by DevNite Team
 
 Here is a overview of things coming in our ext game updates:
+
+# Open-World
+Yea that's right, we add an open world mode in the future. Complete missions to earn Money and get a job for an Apartment and more!
 
 ## Trains
 We add trains soon. There is currently one model series:
