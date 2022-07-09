@@ -16,7 +16,7 @@ Yea that's right, we add an open world mode in the future. Complete missions to 
 
 ## Trains
 We add trains soon. There is currently one model series:
-- Bombardier Talent 2 (used in reallife for the "S-Bahn Mitteldeutschland")
+- Bombardier Talent 2 (used in reallife for the "[S-Bahn Mitteldeutschland](https://th.bing.com/th/id/R.e2ef591149d10c8c117c6324339e6225?rik=RRvsVf9z8RoF9A&pid=ImgRaw&r=0)")
 
 
 ## Stations

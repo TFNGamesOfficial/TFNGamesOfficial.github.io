@@ -9,7 +9,6 @@ description: DevNite will be released soon. Check what's planned and read more a
 ![DevNite release Information](https://cdn2.unrealengine.com/Fortnite%2Fblog%2Fhosting-a-private-match%2F12BR_Competitive_Evergreen_NewsHeader-1920x1080-b5b127c8e41010d113f1c003f9a3302e1eca1b95.jpg)
 
 by DevNite Team
-08.07.2022
 
 ## Informations
 There are currently 2 different release dates:

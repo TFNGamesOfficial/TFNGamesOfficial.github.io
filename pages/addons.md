@@ -1,9 +1,6 @@
 ---
 layout: default
 title: Add-Ons
-weight: 2
+weight: 3
 permalink: /addons/
 ---
-
-{% include addons/search.html %}
-{% include addons/index.html %}
