@@ -17,25 +17,36 @@ You can connect your game to a platform by using the "Connections" widget in lob
 
 ## FAQ
 
-Q: Can I load my progress on iOS devices?
+Q: Can I load my progress on iOS devices?
+
 A: Yes, use the Facebook connection and connect your Facebook account to the game. After this start DevNite on iOS and press "Connect" or "Login".
 
-Q: Can I get hacked?
+
+Q: Can I get hacked?
+
 A: No, we don't collect your data!
 
-Q: Some cosmetics arent available on iOS/Android. What can I do?
+
+Q: Some cosmetics arent available on iOS/Android. What can I do?
+
 A: Some cosmetics are only for specific platforms (example: Khary is only available on PC and Rhea is only available on iOS)!
 
-Q: Can I play public games with a "platform exclusive" cosmetic?
+
+Q: Can I play public games with a "platform exclusive" cosmetic?
+
 A: Not at this point. We test this feature and remove the "exlusive" tag from cosmetics later!
 
-Q: I can't invite my friend. What can I do?
+
+Q: I can't invite my friend. What can I do?
+
 A: Make sure youre friends are using:
 - the same version
 - they disabled "Do not disturb" mode
 - they don't use a platform exlusive cosmetic
 
-Q: I want to unlink my connection
+
+Q: I want to unlink my connection
+
 A: Just press the "Connected" button and confirm this!
 
 
