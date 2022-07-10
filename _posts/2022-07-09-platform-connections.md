@@ -39,18 +39,12 @@ A: Not at this point. We test this feature and remove the "exlusive" tag from co
 
 Q: I can't invite my friend. What can I do?
 
-A: Make sure youre friends are using:
-- the same version
-- they disabled "Do not disturb" mode
-- they don't use a platform exlusive cosmetic
+A: Make sure youre friends:
+- use the same version
+- disabled "Do not disturb" mode
+- don't use a platform exlusive cosmetic
 
 
 Q: I want to unlink my connection
 
 A: Just press the "Connected" button and confirm this!
-
-
-
-
-
-last update: 9th July 2022, 11:19 pm
