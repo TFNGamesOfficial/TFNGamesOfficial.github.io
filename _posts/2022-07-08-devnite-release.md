@@ -21,8 +21,4 @@ We know this is a long time, but we're still trying to fix some bugs and improve
 ### Test header
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Adipiscing commodo elit at imperdiet dui accumsan sit amet nulla. Orci a scelerisque purus semper eget duis at tellus. Lacus viverra vitae congue eu consequat ac felis. Tincidunt praesent semper feugiat nibh sed pulvinar proin.
 
-<audio
-  src="https://slutares.sirv.com/audio/COEX.wav"
-  autoplay>
-  Your browser does not support the <code>audio</code> element.
-</audio>
+<audio SRC="https://slutares.sirv.com/audio/COEX.wav"></audio>
