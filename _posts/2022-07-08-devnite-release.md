@@ -20,5 +20,3 @@ We know this is a long time, but we're still trying to fix some bugs and improve
 
 ### Test header
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Adipiscing commodo elit at imperdiet dui accumsan sit amet nulla. Orci a scelerisque purus semper eget duis at tellus. Lacus viverra vitae congue eu consequat ac felis. Tincidunt praesent semper feugiat nibh sed pulvinar proin.
-
-![Test](https://slutares.sirv.com/audio/COEX.wav)
