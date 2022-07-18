@@ -1,8 +1,7 @@
 ### Site Settings ###
 title               : TFNGames
 description         : Welcome to TFNGames! 
-                      Accounts are temporarily disabled
-                      [Read more](https://tfngames.tk/news/accounts-disabled)
+                      Accounts are temporarily disabled! Read more about it in the news tab.
 baseurl             : ""                     # Change to empty quotes if you are hosting your site at <your-username>.github.io directly
 repository          : TFNGamesOfficial/TFNGamesOfficial.github.io    # Change to <your-username>/<your-username>.github.io (or remove it if you don't need remote projects)
 remote_theme        : YoussefRaafatNasry/portfolYOU
