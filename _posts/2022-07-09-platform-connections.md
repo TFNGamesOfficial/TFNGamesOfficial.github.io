@@ -29,7 +29,7 @@ A: No, we don't collect your data!
 
 Q: Some cosmetics arent available on iOS/Android. What can I do?
 
-A: Some cosmetics are only for specific platforms (example: Khary is only available on PC and Rhea is only available on iOS)!
+A: Some cosmetics are only for specific platforms (example: Khary is only available on PC and Rhea is only available on Android)!
 
 
 Q: Can I play public games with a "platform exclusive" cosmetic?
@@ -42,7 +42,7 @@ Q: I can't invite my friend. What can I do?
 A: Make sure youre friends are using:
 - the same version
 - they disabled "Do not disturb" mode
-- they don't use a platform exlusive cosmetic
+- they don't use a platform exlusive cosmetic if you aren't on the same platform
 
 
 Q: I want to unlink my connection
