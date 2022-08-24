@@ -1,6 +1,6 @@
 ---
 title: Accounts temporarily disabled
-tags: [Accounts, Status]
+tags: [xd, Status]
 style: border
 color: primary
 description: We have temporarily disabled the account page.
