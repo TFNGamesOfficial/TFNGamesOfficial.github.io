@@ -20,6 +20,7 @@ nav_exclude:                                            # The following paths ar
   - pages/index.md
   - pages/request1.md
   - pages/request2.md
+  - pages/docs.html
 
 
 ### Author Info ###
@@ -40,6 +41,9 @@ collections:
   projects:
     output: true
     permalink: /projects/:name
+  docs:
+    output: true
+    permalink: /support/app/:name
 
 
 ### Disqus ###
