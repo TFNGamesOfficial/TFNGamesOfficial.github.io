@@ -3,13 +3,13 @@ layout: null
 permalink: /errorsearch.json
 ---
 [
-  {% for error in site.support %}
+  {% for post in site.support %}
     {
-      "title"    : "{{ support.title | escape }}",
-      "category" : "{{ support.category }}",
-      "tags"     : "{{ support.tags | join: ', ' }}",
-      "url"      : "{{ support.external_url | default: error.url | relative_url }}",
-      "date"     : "{{ support.date }}"
+      "title"    : "{{ post.title | escape }}",
+      "category" : "{{ post.category }}",
+      "tags"     : "{{ post.tags | join: ', ' }}",
+      "url"      : "{{ post.external_url | default: post.url | relative_url }}",
+      "date"     : "{{ post.date }}"
     } {% unless forloop.last %},{% endunless %}
   {% endfor %}
 ]
