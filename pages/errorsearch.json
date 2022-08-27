@@ -3,7 +3,7 @@ layout: null
 permalink: /errorsearch.json
 ---
 [
-  {% for post in site.support %}
+  {% for post in site.errors %}
     {
       "title"    : "{{ post.title | escape }}",
       "category" : "{{ post.category }}",
