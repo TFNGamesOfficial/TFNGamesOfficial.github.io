@@ -2,10 +2,18 @@
 name: Error Codes
 tools: [Error codes]
 image:
+desciption: Find error codes from TFNGames projects.
 ---
+
+## STAR Games projects
+STAR Games error codes can be found [here](https://www.tfngames.tk/support/error-codes#star-games)
+
 
 ### TFNGames Launcher
 [TGLE-104-LF](https://google.com)
 
 ### DevNite
-[TAC-LFID-004](https://google.com)
+[TAC-LFID-XXX](https://google.com)
+[TAC-SCBL-XXX](https://google.com)
+[TAC-GCDS-XXX](https://google.com)
+[DNAC-AWF-XXX](https://google.com)
