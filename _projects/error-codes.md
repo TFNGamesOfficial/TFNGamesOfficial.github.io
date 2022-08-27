@@ -2,7 +2,7 @@
 name: Error Codes
 tools: [Error codes]
 image:
-desciption: Find error codes from TFNGames projects.
+description: Find error codes from TFNGames projects.
 ---
 
 ## STAR Games projects
