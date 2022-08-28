@@ -40,7 +40,7 @@ permalink: /support/:title
 collections:
   projects:
     output: true
-    permalink: /projects/:name
+    permalink: /support/:name
   docs:
     output: true
     permalink: /support/app/:name
