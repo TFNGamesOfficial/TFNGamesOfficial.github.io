@@ -2,6 +2,7 @@
 name: TFNGames Launcher
 description: Do you have an issue with TFNGames launcher?
 tools: [Get help]
+image: https://slutares.sirv.com/devnite-llama-teaser-2022.jpg
 external_url: https://www.tfngames.tk/support/launcher
 ---
 
