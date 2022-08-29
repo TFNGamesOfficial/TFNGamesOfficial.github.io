@@ -33,9 +33,6 @@ author:
 ### Posts ###
 permalink: /news/:title
 
-### Errors ###
-permalink: /support/:title
-
 
 ### Collections ###
 collections:
