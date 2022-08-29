@@ -1,10 +1,7 @@
 ---
-name: TFNGames Launcher
-description: Do you have an issue with TFNGames launcher?
-tools: [Get help]
-external_url: https://www.tfngames.tk/support/launcher
+layout: default
+permalink: /support/launcher/
 ---
-
 
 # Recent issues
 
