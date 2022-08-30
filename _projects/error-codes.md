@@ -9,7 +9,7 @@ STAR Games error codes can be found [here](https://www.tfngames.tk/support/error
 
 
 ### TFNGames Launcher
-- [TGLE-104-LF](https://google.com)
+- [TGLE-404-LF](https://google.com)
 
 ### DevNite
 - [TAC-LFID-XXX](https://google.com)
