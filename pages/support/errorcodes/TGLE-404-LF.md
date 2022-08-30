@@ -5,7 +5,7 @@ permalink: /support/error-codes/TGLE-404-LF/
 ---
 
 # TGLE-404-LF
-This error occurs when logging in and registering. This means the login server was not found. To fix this try running the windows network diagnostics [open here](javascript:diagnoseErrors()) or check the TFNGames or STAR Games server.
+This error occurs when logging in and registering. This means the login server was not found. To fix check your connection ([open settings](ms-settings:network-wifi?activationSource=SMC-IA-4038658)) or check the TFNGames or STAR Games server.
 
 <div>
 <center>
