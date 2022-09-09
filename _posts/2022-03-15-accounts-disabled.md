@@ -1,24 +1,24 @@
 ---
-title: Accounts temporarily disabled
+title: Accounts vorrübergehend deaktiviert
 tags: [Accounts, Status]
 style: border
 color: primary
-description: We have temporarily disabled the account page.
+description: Wir haben die Account Seite vorrübergehend deaktiviert.
 ---
 
-## Update (4. July 2022 | 12:03 AM)
-We have released an update to change the in-game names.
+## Update (4. Juli 2022 | 12:03 Uhr)
+Wir haben ein update veröffentlicht mit dem ihr euer Name im spiel ändern könnt.
 
-# Accounts temporarily disabled
-Due to some improvements we disabled the feature to login, register and view your account settings. I'm working really hard to bring them back but th Account feature is still not safe and stable enough. And since we don't have any online games, that shouldn't really be a problem.
+# Accounts vorrübergehend deaktiviert
+Aufgrund von stabilitäts problemen haben wir die Account seite deaktiviert. Wir arbeiten hart daran sie wieder zurück zu bringen.
 
 ### FAQ:
 
-##### I want to change my InGame Name for Devnite. What can i do?
-A: With the Update V0.1.3 we added a change Name feature in the Game settings. Please use this to change your Name!
+##### Ich will meinen Namen in spielen ändern. Was kann ich tun?
+A: Wir haben am 4. Juli für jedes Spiel ein update veröffentlicht. Wechsle zu den Account einstellungen um den namen zu ändern.
 
-##### What about the "Login with DevNite" feature on other Websites?
-A: Since we only use it on one website, this shouldn't be a problem.
+##### Was passiert mit "Login mit TFNGames"?
+A: Wir nutzen dies auf einer Seite. Deswegen sollte dies kein Problem sein
 
-##### Is my account still there?
-A: Yes of course! We will not remove accounts.
+##### Existiert mein Account noch?
+A: Ja, dein Account existiert noch!
