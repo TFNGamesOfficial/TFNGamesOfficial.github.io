@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Privacy Policy
+permalink: /privacy-policy/
 ---
 
 <h1>Privacy Policy for TFNGames</h1>
