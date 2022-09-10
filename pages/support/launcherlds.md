@@ -7,7 +7,7 @@ permalink: /support/launcher/login-doesnt-save/
 
 **NOTE:** Login option got removed with Launcher update TGL1.1.9!
 
-If you use version "TGL1.1.8" (or below) your login doesn't save because we disabled all accounts due to maintenance. Read more: [Account disabled](https://www.tfngames.tk/news/accounts-disabled), [Account disabled Update](https://www.tfngames.tk/news/accounts-disabled-update).
+If you use version "TGL1.1.79" (or below) your login doesn't save because we disabled all accounts due to maintenance. Read more: [Account disabled](https://www.tfngames.tk/news/accounts-disabled), [Account disabled Update](https://www.tfngames.tk/news/accounts-disabled-update).
 
 <div>
 <center>
