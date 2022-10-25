@@ -1,6 +1,6 @@
 ---
 title: Update for Login and Accounts
-tags: [Accounts, Status, Recently updated]
+tags: [ACCOUNTS, STATUS, RECENTLY UPDATED]
 style: border
 color: danger
 description: DevNite login/accounts no longer available

@@ -1,6 +1,6 @@
 ---
 title: Accounts vorrübergehend deaktiviert
-tags: [Accounts, Status]
+tags: [ACCOUNTS, STATUS]
 style: border
 color: primary
 description: Wir haben die Account Seite vorrübergehend deaktiviert.

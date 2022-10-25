@@ -1,6 +1,6 @@
 ---
 title: Platform connections
-tags: [Social Media, DevNite, Account, FAQ]
+tags: [SOCIAL MEDIA, DEVNITE, ACCOUNT, FAQ]
 style: border
 color: primary
 description: Read more about the platform connections!
