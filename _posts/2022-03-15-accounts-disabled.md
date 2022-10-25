@@ -6,7 +6,7 @@ color: primary
 description: Wir haben die Account Seite vorrübergehend deaktiviert.
 ---
 
-## Update (4. Juli 2022 | 12:00 Uhr)
+## Update (4. Juli 2022 | 12:15 Uhr)
 Wir haben ein update veröffentlicht mit dem ihr euer Name im spiel ändern könnt.
 
 # Accounts vorrübergehend deaktiviert
