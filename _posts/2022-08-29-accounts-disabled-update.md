@@ -6,7 +6,7 @@ color: danger
 description: DevNite login/accounts no longer available
 ---
 
-#Update (19. August 2022)
+# Update (19. August 2022)
 It is no longer possible to request your account data! If you still need cosmetics, please download the newest update. It contains some outfits like "Khary", "Rhea" and **all** other Platform only outfits.
 
 ## Update for disabled Accounts and login page
