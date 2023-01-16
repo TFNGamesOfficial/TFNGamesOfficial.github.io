@@ -16,6 +16,4 @@ Maybe you saw that you got logged out of your account. That's because we removed
 We freeze all accounts until release of DevNite (to get cosmetic from your Account in your game please send an email to request@tfngames.tk (We check your accounts for the Cosmetics)).
 
 #### Examples for Requests
-[Data (Level, Currency, Cosmetics, Add-ons, and PTC access key)](https://www.tfngames.tk/news/data-request)
-
-[Cosmetics for DevNite](https://www.tfngames.tk/news/cosmetic-request)
+**Requests are no longer possible!**
