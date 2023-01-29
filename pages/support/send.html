@@ -81,17 +81,22 @@ input[type="submit"]:hover {
 const form = document.getElementById("ticketForm");
 form.addEventListener("submit", function (event) {
   event.preventDefault();
+
   const subject = form.elements.subject.value;
   const message = form.elements.message.value;
   const sender_email = form.elements.sender_email.value;
   const system_os = form.elements.system_os.value;
   
-
   const data = {
-    subject: subject,
-    message: message,
-    sender_email: sender_email,
-    system_os: system_os
+    subject,
+    message,
+    sender_email,
+    system_os
+  };
+
+  const headers = {
+    "Authorization": "Token wQeFOrQjBJhQv1rtbfwLSX2ZtQJZD4e2fPpJbfBsqvfAXw==",
+    "Content-Type": "application/json",
   };
 
   const proxyUrl = "https://cors-anywhere.herokuapp.com/";
@@ -99,29 +104,36 @@ form.addEventListener("submit", function (event) {
 
   fetch(proxyUrl + targetUrl, {
     method: "POST",
-    headers: {
-      "Authorization": "Token wQeFOrQjBJhQv1rtbfwLSX2ZtQJZD4e2fPpJbfBsqvfAXw==",
-      "Content-Type": "application/json",
-    },
+    headers,
     body: JSON.stringify(data)
   })
-    .then(response => {
-      if (response.ok) {
-        console.log('Success: Ticket submitted');
-        const alert = document.querySelector('.alert');
-        alert.style.display = 'block';
-        alert.textContent = "Success: Ticket submitted";
-        // Add success message here
-      } else {
-        console.error('Error: Ticket submission failed');
-        return response.json().then(error => {
-          console.error(error);
-        const alert1 = document.querySelector('.alert1');
-        alert1.style.display = 'block';
-        alert1.textContent = "Error: Ticket submission failed" + console.error(error);
-        // Add error message here
-      }
-    })
+    .then(handleResponse)
     .catch(error => console.error(error));
 });
+
+function handleResponse(response) {
+  if (!response.ok) {
+    console.error("Error: Ticket submission failed");
+    return response.json().then(error => {
+      console.error(error);
+      showError("Error: Ticket submission failed", error);
+    });
+  }
+
+  console.log("Success: Ticket submitted");
+  showSuccess("Success: Ticket submitted");
+}
+
+function showSuccess(message) {
+  const alert = document.querySelector(".alert");
+  alert.style.display = "block";
+  alert.textContent = message;
+}
+
+function showError(message, error) {
+  console.error(error);
+  const alert1 = document.querySelector(".alert1");
+  alert1.style.display = "block";
+  alert1.textContent = `${message}: ${error}`;
+}
 </script>
