@@ -29,23 +29,29 @@ permalink: /support/contact-us/
 </form>
 
 <script>
-var xhr = new XMLHttpRequest();
-xhr.open("POST", "https://cors-anywhere.herokuapp.com/https://dev.epicgames.com/portal/api/v1/services/tickets/submit/", true);
-xhr.setRequestHeader("Content-Type", "application/json");
-xhr.setRequestHeader("Authorization", "Token wQeFOrQjBJhQv1rtbfwLSX2ZtQJZD4e2fPpJbfBsqvfAXw==");
-xhr.onreadystatechange = function () {
-  if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-    console.log(xhr.responseText);
+fetch('https://dev.epicgames.com/portal/api/v1/services/tickets/submit/', {
+  method: 'POST',
+  headers: {
+    'Authorization': 'Token wQeFOrQjBJhQv1rtbfwLSX2ZtQJZD4e2fPpJbfBsqvfAXw==',
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    subject: 'technical-support',
+    message: 'Example message.',
+    sender_email: 'example.user@example.domain',
+    system_os: 'example OS'
+  })
+})
+.then(response => {
+  if (!response.ok) {
+    throw new Error('Network response was not ok');
   }
-};
-var subject = document.getElementById("subject").value;
-var message = document.getElementById("message").value;
-var sender_email = document.getElementById("sender_email").value;
-var system_os = document.getElementById("system_os").value;
-xhr.send(JSON.stringify({
-  "subject": subject,
-  "message": message,
-  "sender_email": sender_email,
-  "system_os": system_os
-}));
+  return response.json();
+})
+.then(data => {
+  console.log(data);
+})
+.catch(error => {
+  console.error('There was a problem with the fetch operation:', error);
+});
 </script>
