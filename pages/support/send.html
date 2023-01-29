@@ -46,7 +46,7 @@ ticketForm.addEventListener("submit", (event) => {
   });
 
   const xhr = new XMLHttpRequest();
-  xhr.open("POST", "https://dev.epicgames.com/portal/api/v1/services/tickets/submit/");
+  xhr.open("POST", "https://dev.epicgames.com/docs/en-US/https://dev.epicgames.com/portal/api/v1/services/tickets/submit/");
   xhr.setRequestHeader("Authorization", "Token wQeFOrQjBJhQv1rtbfwLSX2ZtQJZD4e2fPpJbfBsqvfAXw==");
   xhr.setRequestHeader("Content-Type", "application/json");
   xhr.send(data);
