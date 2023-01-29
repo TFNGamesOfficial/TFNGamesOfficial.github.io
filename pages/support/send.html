@@ -30,6 +30,7 @@ select, textarea, input[type="email"] {
   font-size: 16px;
   border-radius: 5px;
   border: 1px solid #ddd;
+  background-color: #ffffff;
 }
 
 input[type="submit"] {
@@ -68,6 +69,12 @@ input[type="submit"]:hover {
     <option value="other">Other</option>
   </select><br><br>
   <input type="submit" value="Submit">
+<div class="alert alert-success" role="alert" style="display: none;">
+  Ticket was created!
+</div>
+<div class="alert alert-danger" role="alert1" style="display: none;">
+  Error!
+</div>
 </form>
 
 <script>
@@ -78,6 +85,7 @@ form.addEventListener("submit", function (event) {
   const message = form.elements.message.value;
   const sender_email = form.elements.sender_email.value;
   const system_os = form.elements.system_os.value;
+  
 
   const data = {
     subject: subject,
@@ -97,8 +105,23 @@ form.addEventListener("submit", function (event) {
     },
     body: JSON.stringify(data)
   })
-    .then(response => response.json())
-    .then(data => console.log(data))
+    .then(response => {
+      if (response.ok) {
+        console.log('Success: Ticket submitted');
+        const alert = document.querySelector('.alert');
+        alert.style.display = 'block';
+        alert.textContent = "Success: Ticket submitted";
+        // Add success message here
+      } else {
+        console.error('Error: Ticket submission failed');
+        return response.json().then(error => {
+          console.error(error);
+        const alert1 = document.querySelector('.alert1');
+        alert1.style.display = 'block';
+        alert1.textContent = "Error: Ticket submission failed" + error;
+        // Add error message here
+      }
+    })
     .catch(error => console.error(error));
 });
 </script>
