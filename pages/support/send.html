@@ -36,7 +36,8 @@ permalink: /support/contact-us/
       url: "https://dev.epicgames.com/portal/api/v1/services/tickets/submit/",
       contentType: "application/json",
       headers: {
-        "Authorization": "Token " + "wQeFOrQjBJhQv1rtbfwLSX2ZtQJZD4e2fPpJbfBsqvfAXw"
+        "Authorization": "Token " + "wQeFOrQjBJhQv1rtbfwLSX2ZtQJZD4e2fPpJbfBsqvfAXw",
+        "Access-Control-Allow-Origin": "*"
       },
       data: JSON.stringify({
         "subject": $("#subject").val(),
