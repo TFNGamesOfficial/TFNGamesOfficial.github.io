@@ -1,0 +1,70 @@
+---
+layout: default
+title: TEST
+weight: 2
+permalink: /support/testcd/
+---
+
+<form id="ticketForm">
+  <label for="subject">Subject:</label>
+  <select id="subject" name="subject" required>
+    <option value="technical-support">Technical Support</option>
+    <option value="open-question">Open Question</option>
+  </select><br><br>
+  <label for="message">Message:</label>
+  <textarea id="message" name="message" required></textarea><br><br>
+  <label for="email">Email:</label>
+  <input type="email" id="sender_email" name="sender_email" required><br><br>
+    <label for="system_os">Error Code:</label>
+  <select id="error_code" name="system_os"
+    <option value="404lf" data-category="TFNGames Launcher">TGLE-404-LF</option>
+    <option value="anf" data-category="TFNGames Launcher">TAS-ANF-001</option>
+    <option value="dn1" data-category="Devnite">TAC-LFID-4686</option>
+    <option value="dn2" data-category="Devnite">TAC-SCLB-9730</option>
+    <option value="dn3" data-category="Devnite">TAC-GCDS-715</option>
+    <option value="dn4" data-category="Devnite">DNAC-AWF-035</option>
+  </select><br><br>
+  <label for="system_os">System OS:</label>
+  <select id="system_os" name="system_os"
+    <option value="windows">Windows</option>
+    <option value="mac_os">Mac OS</option>
+    <option value="linux">Linux</option>
+    <option value="ios">iOS</option>
+    <option value="android">Android</option>
+    <option value="other">Other</option>
+  </select><br><br>
+  <input type="submit" value="Submit">
+</form>
+
+<script>
+const form = document.getElementById("ticketForm");
+form.addEventListener("submit", function (event) {
+  event.preventDefault();
+  const subject = form.elements.subject.value;
+  const message = form.elements.message.value;
+  const sender_email = form.elements.sender_email.value;
+  const system_os = form.elements.system_os.value;
+
+  const data = {
+    subject: subject,
+    message: message,
+    sender_email: sender_email,
+    system_os: system_os
+  };
+
+  const proxyUrl = "https://cors-anywhere.herokuapp.com/";
+  const targetUrl = "https://dev.epicgames.com/portal/api/v1/services/tickets/submit/";
+
+  fetch(proxyUrl + targetUrl, {
+    method: "POST",
+    headers: {
+      "Authorization": "Token wQeFOrQjBJhQv1rtbfwLSX2ZtQJZD4e2fPpJbfBsqvfAXw==",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data)
+  })
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error(error));
+});
+</script>
