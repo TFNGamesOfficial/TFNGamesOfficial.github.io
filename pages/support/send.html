@@ -5,4 +5,17 @@ weight: 2
 permalink: /support/contact-us/
 ---
 
-{% include contact-head.html %}
+<form action="https://dev.epicgames.com/portal/api/v1/services/tickets/submit/" method="post">
+  <input type="hidden" name="Authorization" value="Token wQeFOrQjBJhQv1rtbfwLSX2ZtQJZD4e2fPpJbfBsqvfAXw==">
+  <input type="hidden" name="Content-Type" value="application/json">
+  <label for="subject">Subject:</label>
+  <select id="subject" name="subject">
+    <option value="technical-support">Technical Support</option>
+    <option value="open-question">Billing</option>
+  </select><br><br>
+  <label for="sender_email">Email:</label>
+  <input type="email" id="sender_email" name="sender_email"><br><br>
+  <label for="message">Message:</label>
+  <textarea id="message" name="message"></textarea><br><br>
+  <input type="submit" value="Submit">
+</form>
