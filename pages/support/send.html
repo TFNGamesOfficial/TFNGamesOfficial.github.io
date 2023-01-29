@@ -5,54 +5,58 @@ weight: 2
 permalink: /support/contact-us/
 ---
 
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
-</head>
-<body>
-  <form id="ticket-form">
-    <select id="subject" name="subject">
-      <option value="open-question">Question</option>
-      <option value="technical-support">Support</option>
-    </select>
-    <textarea id="message" name="message"></textarea>
-    <input type="email" id="sender_email" name="sender_email">
-    <button type="submit">Send</button>
-    <div id="response"></div>
-  </form>
+<form>
+  <label for="subject">Subject:</label>
+  <select id="subject" name="subject">
+    <option value="open-question">Question</option>
+    <option value="technical-support">Support</option>
+  </select>
+  <br><br>
 
-  <script>
-    const form = document.getElementById('ticket-form');
-    const apiKey = "wQeFOrQjBJhQv1rtbfwLSX2ZtQJZD4e2fPpJbfBsqvfAXw";
-    const responseContainer = document.getElementById('response');
+  <label for="message">Message:</label>
+  <textarea id="message" name="message"></textarea>
+  <br><br>
 
-    form.addEventListener('submit', (event) => {
-      event.preventDefault();
-      const subject = document.getElementById('subject').value;
-      const message = document.getElementById('message').value;
-      const senderEmail = document.getElementById('sender_email').value;
+  <label for="sender_email">Email:</label>
+  <input type="email" id="sender_email" name="sender_email">
+  <br><br>
 
-      const data = { subject, message, sender_email: senderEmail };
-      const options = {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${apiKey}`
-        },
-        body: JSON.stringify(data)
-      };
+  <button type="submit">Submit</button>
+</form>
 
-      fetch('https://dev.epicgames.com/portal/api/v1/services/tickets/submit/', options)
-        .then(response => response.json())
-        .then(data => {
-          responseContainer.innerHTML = 'Ticket sent successfully';
-        })
-        .catch(error => {
-          responseContainer.innerHTML = 'Error sending ticket';
-        });
+<script>
+  const form = document.querySelector('form');
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const subject = form.elements.subject.value;
+    const message = form.elements.message.value;
+    const sender_email = form.elements.sender_email.value;
+
+    const api_key = "wQeFOrQjBJhQv1rtbfwLSX2ZtQJZD4e2fPpJbfBsqvfAXw";
+    const headers = new Headers({
+      "Authorization": `Bearer ${api_key}`,
+      "Content-Type": "application/json"
     });
-  </script>
-</body>
-</html>
+
+    const body = JSON.stringify({
+      subject,
+      message,
+      sender_email
+    });
+
+    fetch('https://dev.epicgames.com/portal/api/v1/services/tickets/submit/', {
+      method: 'POST',
+      headers,
+      body
+    })
+      .then(response => response.json())
+      .then(data => {
+        alert('Ticket submitted successfully');
+      })
+      .catch(error => {
+        console.error(error);
+        alert('Failed to submit ticket');
+      });
+  });
+</script>
