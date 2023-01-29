@@ -29,30 +29,23 @@ permalink: /support/contact-us/
 </form>
 
 <script>
-  const ticketForm = document.querySelector('#ticketForm');
-  ticketForm.addEventListener('submit', event => {
-    event.preventDefault();
-
-    const subject = document.querySelector('#subject').value;
-    const message = document.querySelector('#message').value;
-    const email = document.querySelector('#email').value;
-    const systemOS = document.querySelector('#system_os').value;
-
-    fetch('https://dev.epicgames.com/docs/en-US/https://dev.epicgames.com/portal/api/v1/services/tickets/submit/', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'Token wQeFOrQjBJhQv1rtbfwLSX2ZtQJZD4e2fPpJbfBsqvfAXw=='
-      },
-      body: JSON.stringify({
-        subject,
-        message,
-        email,
-        system_os: systemOS
-      })
-    })
-      .then(response => response.json())
-      .then(data => console.log(data))
-      .catch(error => console.error(error));
-  });
+var xhr = new XMLHttpRequest();
+xhr.open("POST", "https://cors-anywhere.herokuapp.com/https://dev.epicgames.com/portal/api/v1/services/tickets/submit/", true);
+xhr.setRequestHeader("Content-Type", "application/json");
+xhr.setRequestHeader("Authorization", "Token wQeFOrQjBJhQv1rtbfwLSX2ZtQJZD4e2fPpJbfBsqvfAXw==");
+xhr.onreadystatechange = function () {
+  if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+    console.log(xhr.responseText);
+  }
+};
+var subject = document.getElementById("subject").value;
+var message = document.getElementById("message").value;
+var email = document.getElementById("email").value;
+var system_os = document.getElementById("system_os").value;
+xhr.send(JSON.stringify({
+  "subject": subject,
+  "message": message,
+  "email": email,
+  "system_os": system_os
+}));
 </script>
