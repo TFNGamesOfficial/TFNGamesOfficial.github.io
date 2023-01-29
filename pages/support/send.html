@@ -29,26 +29,34 @@ permalink: /support/contact-us/
 </form>
 
 <script>
-const ticketForm = document.getElementById("ticketForm");
-ticketForm.addEventListener("submit", (event) => {
+const form = document.getElementById("ticketForm");
+form.addEventListener("submit", function (event) {
   event.preventDefault();
+  const subject = form.elements.subject.value;
+  const message = form.elements.message.value;
+  const sender_email = form.elements.sender_email.value;
+  const system_os = form.elements.system_os.value;
 
-  const subject = document.getElementById("subject").value;
-  const message = document.getElementById("message").value;
-  const sender_email = document.getElementById("sender_email").value;
-  const system_os = document.getElementById("system_os").value;
+  const data = {
+    subject: subject,
+    message: message,
+    sender_email: sender_email,
+    system_os: system_os
+  };
 
-  const data = JSON.stringify({
-    subject,
-    message,
-    sender_email,
-    system_os
-  });
+  const proxyUrl = "https://cors-anywhere.herokuapp.com/";
+  const targetUrl = "https://dev.epicgames.com/portal/api/v1/services/tickets/submit/";
 
-  const xhr = new XMLHttpRequest();
-  xhr.open("POST", "https://dev.epicgames.com/portal/api/v1/services/tickets/submit/");
-  xhr.setRequestHeader("Authorization", "Token wQeFOrQjBJhQv1rtbfwLSX2ZtQJZD4e2fPpJbfBsqvfAXw==");
-  xhr.setRequestHeader("Content-Type", "application/json");
-  xhr.send(data);
+  fetch(proxyUrl + targetUrl, {
+    method: "POST",
+    headers: {
+      "Authorization": "Token wQeFOrQjBJhQv1rtbfwLSX2ZtQJZD4e2fPpJbfBsqvfAXw==",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data)
+  })
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error(error));
 });
 </script>
