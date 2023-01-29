@@ -29,35 +29,30 @@ permalink: /support/contact-us/
 </form>
 
 <script>
-  $(document).ready(function() {
-  $("#ticketForm").submit(function(event) {
+  const ticketForm = document.querySelector('#ticketForm');
+  ticketForm.addEventListener('submit', event => {
     event.preventDefault();
-    $.ajax({
-      type: "POST",
-      url: "https://cutt.ly/M9OmDwi",
-      crossDomain: true,
-      contentType: "application/json",
+
+    const subject = document.querySelector('#subject').value;
+    const message = document.querySelector('#message').value;
+    const email = document.querySelector('#email').value;
+    const systemOS = document.querySelector('#system_os').value;
+
+    fetch('https://dev.epicgames.com/portal/api/v1/services/tickets/submit/', {
+      method: 'POST',
       headers: {
-        "Authorization": "Token " + "wQeFOrQjBJhQv1rtbfwLSX2ZtQJZD4e2fPpJbfBsqvfAXw",
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "POST",
-        "Access-Control-Allow-Headers": "*",
-        "Access-Control-Request-Method": "POST"
+        'Content-Type': 'application/json'
+        'Authorization': 'Token wQeFOrQjBJhQv1rtbfwLSX2ZtQJZD4e2fPpJbfBsqvfAXw=='
       },
-      dataType: "json",
-      data: JSON.stringify({
-        "subject": $("#subject").val(),
-        "message": $("#message").val(),
-        "email": $("#email").val(),
-        "system_os": $("#system_os").val()
-      }),
-      success: function(response) {
-        alert("Ticket submitted successfully!");
-      },
-      error: function(error) {
-        alert("Error submitting ticket: " + error.responseText);
-      }
-    });
+      body: JSON.stringify({
+        subject,
+        message,
+        email,
+        system_os: systemOS
+      })
+    })
+      .then(response => response.json())
+      .then(data => console.log(data))
+      .catch(error => console.error(error));
   });
-});
 </script>
