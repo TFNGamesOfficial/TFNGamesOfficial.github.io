@@ -17,12 +17,16 @@ permalink: /support/testcd/
   <input type="email" id="sender_email" name="sender_email" required><br><br>
     <label for="system_os">Error Code:</label>
   <select id="error_code" name="system_os"
+    <optgroup label="TFNGames Launcher">
     <option value="404lf" data-category="TFNGames Launcher">TGLE-404-LF</option>
     <option value="anf" data-category="TFNGames Launcher">TAS-ANF-001</option>
+    </optgroup>
+  <optgroup label="Devnite">
     <option value="dn1" data-category="Devnite">TAC-LFID-4686</option>
     <option value="dn2" data-category="Devnite">TAC-SCLB-9730</option>
     <option value="dn3" data-category="Devnite">TAC-GCDS-715</option>
     <option value="dn4" data-category="Devnite">DNAC-AWF-035</option>
+     </optgroup>
   </select><br><br>
   <label for="system_os">System OS:</label>
   <select id="system_os" name="system_os"
@@ -44,12 +48,14 @@ form.addEventListener("submit", function (event) {
   const message = form.elements.message.value;
   const sender_email = form.elements.sender_email.value;
   const system_os = form.elements.system_os.value;
+  const error_code = form.elements.error_code.value;
 
   const data = {
     subject: subject,
     message: message,
     sender_email: sender_email,
     system_os: system_os
+    error_code: error_code
   };
 
   const proxyUrl = "https://cors-anywhere.herokuapp.com/";
