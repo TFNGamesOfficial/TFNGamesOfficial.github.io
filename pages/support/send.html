@@ -35,6 +35,7 @@ permalink: /support/contact-us/
     $.ajax({
       type: "POST",
       url: "https://dev.epicgames.com/portal/api/v1/services/tickets/submit/",
+      crossDomain: true,
       contentType: "application/json",
       headers: {
         "Authorization": "Token " + "wQeFOrQjBJhQv1rtbfwLSX2ZtQJZD4e2fPpJbfBsqvfAXw",
