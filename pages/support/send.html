@@ -41,8 +41,10 @@ permalink: /support/contact-us/
         "Authorization": "Token " + "wQeFOrQjBJhQv1rtbfwLSX2ZtQJZD4e2fPpJbfBsqvfAXw",
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods": "POST",
-        "Access-Control-Allow-Headers": "Content-Type"
+        "Access-Control-Allow-Headers": "*",
+        "Access-Control-Request-Method": "POST"
       },
+      dataType: "json",
       data: JSON.stringify({
         "subject": $("#subject").val(),
         "message": $("#message").val(),
