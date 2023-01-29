@@ -18,7 +18,7 @@ permalink: /support/contact-us/
         var xhr = new XMLHttpRequest();
         xhr.open("POST", "https://dev.epicgames.com/portal/api/v1/services/tickets/submit/", true);
         xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        xhr.setRequestHeader("Authorization", "Bearer " + api_key);
+        xhr.setRequestHeader("Authorization", "Token " + api_key);
         xhr.onreadystatechange = function() {
           if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
             document.getElementById("result").innerHTML = "Ticket erfolgreich gesendet.";
