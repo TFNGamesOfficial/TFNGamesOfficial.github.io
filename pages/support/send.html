@@ -34,13 +34,13 @@ permalink: /support/contact-us/
     event.preventDefault();
     $.ajax({
       type: "POST",
-      url: "https://cutt.ly/M9OmDwi/",
+      url: "https://dev.epicgames.com/portal/api/v1/services/tickets/submit/",
       contentType: "application/json",
       headers: {
         "Authorization": "Token " + "wQeFOrQjBJhQv1rtbfwLSX2ZtQJZD4e2fPpJbfBsqvfAXw",
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods": "POST",
-        "Access-Control-Allow-Headers": "X-CUSTOM", "Content-Type"
+        "Access-Control-Allow-Headers": "Content-Type"
       },
       data: JSON.stringify({
         "subject": $("#subject").val(),
