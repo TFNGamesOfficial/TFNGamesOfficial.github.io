@@ -10,6 +10,7 @@ permalink: /support/testcd/
   <select id="subject" name="subject" required>
     <option value="technical-support">Technical Support</option>
     <option value="open-question">Open Question</option>
+    <option value="other">Other</option>
   </select><br><br>
   <label for="message">Message:</label>
   <textarea id="message" name="message" required></textarea><br><br>
@@ -17,7 +18,8 @@ permalink: /support/testcd/
   <input type="email" id="sender_email" name="sender_email" required><br><br>
     <label for="system_os">Error Code:</label>
   <select id="error_code" name="system_os"
-    <optgroup label="TFNGames Launcher">
+   <optgroup label=" ">
+     <optgroup label="TFNGames Launcher">
     <option value="404lf" data-category="TFNGames Launcher">TGLE-404-LF</option>
     <option value="anf" data-category="TFNGames Launcher">TAS-ANF-001</option>
     </optgroup>
@@ -54,7 +56,7 @@ form.addEventListener("submit", function (event) {
     subject: subject,
     message: message,
     sender_email: sender_email,
-    system_os: system_os
+    system_os: system_os,
     error_code: error_code
   };
 
