@@ -29,29 +29,26 @@ permalink: /support/contact-us/
 </form>
 
 <script>
-fetch('https://dev.epicgames.com/portal/api/v1/services/tickets/submit/', {
-  method: 'POST',
-  headers: {
-    'Authorization': 'Token wQeFOrQjBJhQv1rtbfwLSX2ZtQJZD4e2fPpJbfBsqvfAXw==',
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify({
-    subject: 'technical-support',
-    message: 'Example message.',
-    sender_email: 'example.user@example.domain',
-    system_os: 'example OS'
-  })
-})
-.then(response => {
-  if (!response.ok) {
-    throw new Error('Network response was not ok');
-  }
-  return response.json();
-})
-.then(data => {
-  console.log(data);
-})
-.catch(error => {
-  console.error('There was a problem with the fetch operation:', error);
+const ticketForm = document.getElementById("ticketForm");
+ticketForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  const subject = document.getElementById("subject").value;
+  const message = document.getElementById("message").value;
+  const sender_email = document.getElementById("sender_email").value;
+  const system_os = document.getElementById("system_os").value;
+
+  const data = JSON.stringify({
+    subject,
+    message,
+    sender_email,
+    system_os
+  });
+
+  const xhr = new XMLHttpRequest();
+  xhr.open("POST", "https://dev.epicgames.com/portal/api/v1/services/tickets/submit/");
+  xhr.setRequestHeader("Authorization", "Token wQeFOrQjBJhQv1rtbfwLSX2ZtQJZD4e2fPpJbfBsqvfAXw==");
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.send(data);
 });
 </script>
