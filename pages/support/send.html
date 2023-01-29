@@ -5,62 +5,46 @@ weight: 2
 permalink: /support/contact-us/
 ---
 
-<form>
-  <label for="subject">Subject:</label>
-  <select id="subject" name="subject">
-    <option value="open-question">Question</option>
-    <option value="technical-support">Support</option>
-  </select>
-  <br><br>
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      function submitForm() {
+        var subject = document.getElementById("subject").value;
+        var message = document.getElementById("message").value;
+        var sender_email = document.getElementById("sender_email").value;
+        var api_key = "your_api_key";
 
-  <label for="message">Message:</label>
-  <textarea id="message" name="message"></textarea>
-  <br><br>
-
-  <label for="sender_email">Email:</label>
-  <input type="email" id="sender_email" name="sender_email">
-  <br><br>
-
-  <button type="submit">Submit</button>
-</form>
-
-<script>
-  const form = document.querySelector('form');
-  form.addEventListener('submit', (event) => {
-    event.preventDefault();
-
-    const subject = form.elements.subject.value;
-    const message = form.elements.message.value;
-    const sender_email = form.elements.sender_email.value;
-
-    const api_key = "wQeFOrQjBJhQv1rtbfwLSX2ZtQJZD4e2fPpJbfBsqvfAXw";
-    const headers = new Headers({
-      "Authorization": `Bearer ${api_key}`,
-      "Content-Type": "application/json"
-    });
-
-    const body = JSON.stringify({
-      subject,
-      message,
-      sender_email
-    });
-
-    fetch('https://dev.epicgames.com/portal/api/v1/services/tickets/submit/', {
-      method: 'POST',
-      headers,
-      body
-.then(response => {
-  if (!response.ok) {
-    throw new Error(`Status code error: ${response.status}`);
-  }
-  return response.json();
-})
-.then(data => {
-  alert('Ticket submitted successfully');
-})
-.catch(error => {
-  console.error(error);
-  alert(`Failed to submit ticket: ${error}`);
-});
-  });
-</script>
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "https://dev.epicgames.com/portal/api/v1/services/tickets/submit/", true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.setRequestHeader("Authorization", "Bearer " + api_key);
+        xhr.onreadystatechange = function() {
+          if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+            document.getElementById("result").innerHTML = "Ticket erfolgreich gesendet.";
+          } else if (this.readyState === XMLHttpRequest.DONE) {
+            document.getElementById("result").innerHTML = "Fehler: " + this.status;
+          }
+        };
+        xhr.send("subject=" + encodeURIComponent(subject) + "&message=" + encodeURIComponent(message) + "&sender_email=" + encodeURIComponent(sender_email));
+      }
+    </script>
+  </head>
+  <body>
+    <label for="subject">Betreff:</label>
+    <select id="subject">
+      <option value="Option 1">Option 1</option>
+      <option value="Option 2">Option 2</option>
+    </select>
+    <br>
+    <label for="message">Nachricht:</label>
+    <textarea id="message"></textarea>
+    <br>
+    <label for="sender_email">Absender E-Mail:</label>
+    <input type="email" id="sender_email">
+    <br>
+    <button onclick="submitForm()">Absenden</button>
+    <br>
+    <div id="result"></div>
+  </body>
+</html>
