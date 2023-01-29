@@ -5,22 +5,54 @@ weight: 2
 permalink: /support/contact-us/
 ---
 
-<form action="https://dev.epicgames.com/portal/api/v1/services/tickets/submit/" method="post">
-  <input type="hidden" name="API-Key" value="wQeFOrQjBJhQv1rtbfwLSX2ZtQJZD4e2fPpJbfBsqvfAXw">
-  <div>
-    <label for="subject">Subject:</label>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+</head>
+<body>
+  <form id="ticket-form">
     <select id="subject" name="subject">
       <option value="open-question">Question</option>
-      <option value="technical-support">I need help</option>
+      <option value="technical-support">Support</option>
     </select>
-  </div>
-  <div>
-    <label for="message">Message:</label>
     <textarea id="message" name="message"></textarea>
-  </div>
-  <div>
-    <label for="sender_email">Contact Email:</label>
     <input type="email" id="sender_email" name="sender_email">
-  </div>
-  <button type="submit">Submit</button>
-</form>
+    <button type="submit">Send</button>
+    <div id="response"></div>
+  </form>
+
+  <script>
+    const form = document.getElementById('ticket-form');
+    const apiKey = "wQeFOrQjBJhQv1rtbfwLSX2ZtQJZD4e2fPpJbfBsqvfAXw";
+    const responseContainer = document.getElementById('response');
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const subject = document.getElementById('subject').value;
+      const message = document.getElementById('message').value;
+      const senderEmail = document.getElementById('sender_email').value;
+
+      const data = { subject, message, sender_email: senderEmail };
+      const options = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${apiKey}`
+        },
+        body: JSON.stringify(data)
+      };
+
+      fetch('https://dev.epicgames.com/portal/api/v1/services/tickets/submit/', options)
+        .then(response => response.json())
+        .then(data => {
+          responseContainer.innerHTML = 'Ticket sent successfully';
+        })
+        .catch(error => {
+          responseContainer.innerHTML = 'Error sending ticket';
+        });
+    });
+  </script>
+</body>
+</html>
