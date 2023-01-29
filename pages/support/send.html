@@ -118,9 +118,9 @@ form.addEventListener("submit", function (event) {
           console.error(error);
         const alert1 = document.querySelector('.alert1');
         alert1.style.display = 'block';
-        alert1.textContent = "Error: Ticket submission failed" + error;
+        alert1.textContent = "Error: Ticket submission failed" + console.error(error);
         // Add error message here
-      )}
+      }
     })
     .catch(error => console.error(error));
 });
