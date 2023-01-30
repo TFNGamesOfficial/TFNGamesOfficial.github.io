@@ -1,0 +1,52 @@
+---
+layout: default
+title: Contact u
+weight: 2
+permalink: /support/dcontact/
+---
+
+<head>
+    <script>
+      async function sendRequest() {
+        const form = document.getElementById("ticketForm");
+        const subject = form.elements.subject.value;
+        const message = form.elements.message.value;
+        const sender_email = form.elements.sender_email.value;
+        const system_os = form.elements.system_os.value;
+
+        const data = {
+          subject,
+          message,
+          sender_email,
+          system_os
+        };
+
+        const headers = {
+          "Authorization": "Token wQeFOrQjBJhQv1rtbfwLSX2ZtQJZD4e2fPpJbfBsqvfAXw==",
+          "Content-Type": "application/json",
+        };
+
+        const response = await fetch("https://dev.epicgames.com/portal/api/v1/services/tickets/submit/", {
+          method: "POST",
+          headers,
+          body: JSON.stringify(data)
+        });
+
+        if (!response.ok) {
+          console.error("Error: Ticket submission failed");
+          return;
+        }
+
+        console.log("Success: Ticket submitted");
+      }
+    </script>
+  </head>
+
+    <form id="ticketForm">
+      <input type="text" name="subject" placeholder="Subject">
+      <input type="text" name="message" placeholder="Message">
+      <input type="text" name="sender_email" placeholder="Email">
+      <input type="text" name="system_os" placeholder="OS">
+      <button type="button" onclick="sendRequest()">Submit Ticket</button>
+    </form>
+ 
