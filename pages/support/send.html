@@ -121,22 +121,21 @@ form.addEventListener("submit", function (event) {
     headers,
     body: JSON.stringify(data)
   })
-    .then(handleResponse)
-    .catch(error => console.error(error));
-});
-
-function handleResponse(response) {
-  if (!response.ok) {
-    console.error("Error: Ticket submission failed");
-    return response.json().then(error => {
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Error: Ticket submission failed");
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log("Success: Ticket submitted");
+      showSuccess("Success: Ticket submitted");
+    })
+    .catch(error => {
       console.error(error);
       showError("Error: Ticket submission failed", error);
     });
-  }
-
-  console.log("Success: Ticket submitted");
-  showSuccess("Success: Ticket submitted");
-}
+});
 
 function showSuccess(message) {
   const alert = document.querySelector(".alert");
