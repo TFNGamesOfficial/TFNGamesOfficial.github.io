@@ -112,10 +112,9 @@ form.addEventListener("submit", function (event) {
     "Content-Type": "application/json",
   };
 
-  const proxyUrl = "https://cors-anywhere.herokuapp.com/";
   const targetUrl = "https://dev.epicgames.com/portal/api/v1/services/tickets/submit/";
 
-  fetch(proxyUrl + targetUrl, {
+  fetch(targetUrl, {
     method: "POST",
     headers,
     body: JSON.stringify(data)
