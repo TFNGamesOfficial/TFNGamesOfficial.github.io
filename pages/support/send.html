@@ -109,14 +109,12 @@ form.addEventListener("submit", function (event) {
 
   const headers = {
     "Authorization": "Token wQeFOrQjBJhQv1rtbfwLSX2ZtQJZD4e2fPpJbfBsqvfAXw==",
-    "Content-Type": "application/json",
-    "Access-Control-Allow-Origin": "*"
+    "Content-Type": "application/json"
   };
 
-  const proxyUrl = "https://cors-policy.tfniscool.repl.co/?url=";
   const targetUrl = "https://dev.epicgames.com/portal/api/v1/services/tickets/submit/";
 
-  fetch(proxyUrl + targetUrl, {
+  fetch(targetUrl, {
     method: "POST",
     headers,
     body: JSON.stringify(data)
