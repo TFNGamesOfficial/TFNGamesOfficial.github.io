@@ -103,6 +103,17 @@ permalink: /support/contact-us/
 const form = document.getElementById("ticketForm");
 form.addEventListener("submit", function (event) {
   event.preventDefault();
+  
+  const subjectDropdown = form.elements.subject;
+const systemOSDropdown = form.elements.system_os;
+
+subjectDropdown.addEventListener("change", function () {
+  if (subjectDropdown.value === "open-question") {
+    systemOSDropdown.style.display = "none";
+  } else {
+    systemOSDropdown.style.display = "block";
+  }
+});
 
   const subject = form.elements.subject.value;
   const sender_name = form.elements.sender_name.value;
