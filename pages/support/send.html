@@ -172,8 +172,11 @@ function showSuccess(message) {
 
 function showError(message, error) {
   console.error(error);
+  setTimeout(showError(){
   const alert_fail = document.getElementById("alert_fail");
   alert_fail.style.display = "block";
   alert_fail.textContent = `${message}: ${error}`;
+  // Code hier, der nach 3 Sekunden ausgeführt wird
+}, 3000);
 }
 </script>
