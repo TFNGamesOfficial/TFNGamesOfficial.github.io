@@ -118,13 +118,12 @@ subject.addEventListener("change", function () {
 });
 
 
-  const subject = form.elements.subject.value;
   const sender_name = form.elements.sender_name.value;
   const message = form.elements.message.value;
   const sender_email = form.elements.sender_email.value;
   
   const data = {
-    subject,
+    subject: subject.value,
     message,
     sender_email,
     system_os: system_os.value // Hier wird der Wert des system_os-Elements verwendet.
