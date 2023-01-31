@@ -92,7 +92,7 @@ permalink: /support/contact-us/
     <option value="ps5">PlayStation 4</option>
     <option value="ns">Nintendo Switch</option>
     </optgroup>
-  </select><br><br>
+  </select><br><br id="br_tag">
   <input type="submit" value="Submit"><br><br>
 <div id="alert_successs" class="alert alert-success" role="alert" style="display: none;">
   Ticket was created!
@@ -112,9 +112,11 @@ subject.addEventListener("change", function (event) {
   if (subject.value === "open-question") {
     system_os.style.display = "none";
     sys_os_label.style.display = "none";
+    document.getElementById("br_tag").style.display = "none";
   } else {
     system_os.style.display = "block";
     sys_os_label.style.display = "block";
+    document.getElementById("br_tag").style.display = "block";
   }
 });
 
