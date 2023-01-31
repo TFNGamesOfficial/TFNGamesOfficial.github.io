@@ -104,7 +104,8 @@ const form = document.getElementById("ticketForm");
 form.addEventListener("submit", function (event) {
   event.preventDefault();
   
-  const subjectDropdown = form.elements.subject;
+const form = document.getElementById("ticketForm");
+const subjectDropdown = form.elements.subject;
 const systemOSDropdown = form.elements.system_os;
 
 subjectDropdown.addEventListener("change", function () {
