@@ -101,6 +101,7 @@ permalink: /support/contact-us/
 
 <script>
 const form = document.getElementById("ticketForm");
+const system_os = form.elements.system_os; // Hier wird system_os als Element des Formulars abgerufen.
 form.addEventListener("submit", function (event) {
   event.preventDefault();
 
@@ -108,13 +109,12 @@ form.addEventListener("submit", function (event) {
   const sender_name = form.elements.sender_name.value;
   const message = form.elements.message.value;
   const sender_email = form.elements.sender_email.value;
-  const system_os = form.elements.system_os.value;
   
   const data = {
     subject,
     message,
     sender_email,
-    system_os
+    system_os: system_os.value // Hier wird der Wert des system_os-Elements verwendet.
   };
   
   subject.addEventListener("change", function() {
