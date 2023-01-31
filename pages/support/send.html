@@ -141,7 +141,7 @@ form.addEventListener("submit", function (event) {
  //   "x-cors-api-key": "temp_9206cde71da30d4a289d694d01ac277f"
   };
 
-  const url = 'https://corsproxy.io/?' + encodeURIComponent('https://proxys.cors.sh/https://dev.epicgames.com/portal/api/v1/services/tickets/submit/');
+  const url = 'https://corsproxy.io/?' + encodeURIComponent('https://proxy.cors.sh/https://dev.epicgames.com/portal/api/v1/services/tickets/submit/');
 
   fetch(url, {
     method: "POST",
@@ -173,9 +173,7 @@ function showSuccess(message) {
 function showError(message, error) {
   console.error(error);
   const alert_fail = document.getElementById("alert_fail");
-  setTimeout(() => {
     alert_fail.style.display = "block";
-    alert_fail.textContent = `${message}: ${error}`;
-  }, 3000);
+    alert_fail.textContent = "Error: Ticket submission failed";
 }
 </script>
