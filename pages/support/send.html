@@ -103,18 +103,6 @@ permalink: /support/contact-us/
 const form = document.getElementById("ticketForm");
 form.addEventListener("submit", function (event) {
   event.preventDefault();
-  
-const form = document.getElementById("ticketForm");
-const subjectDropdown = form.elements.subject;
-const systemOSDropdown = form.elements.system_os;
-
-subjectDropdown.addEventListener("change", function () {
-  if (subjectDropdown.value === "open-question") {
-    systemOSDropdown.style.display = "none";
-  } else {
-    systemOSDropdown.style.display = "block";
-  }
-});
 
   const subject = form.elements.subject.value;
   const sender_name = form.elements.sender_name.value;
@@ -128,6 +116,15 @@ subjectDropdown.addEventListener("change", function () {
     sender_email,
     system_os
   };
+  
+  subject.addEventListener("change", function() {
+    if (subject.value === "open-question") {
+      system_os.style.display = "none";
+    } else {
+      system_os.style.display = "block";
+    }
+  });
+
 
   const headers = {
     "Authorization": "Token wQeFOrQjBJhQv1rtbfwLSX2ZtQJZD4e2fPpJbfBsqvfAXw==",
