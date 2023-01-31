@@ -73,7 +73,7 @@ permalink: /support/contact-us/
   <textarea id="message" name="message" required></textarea><br><br>
   <label for="email">Email:</label>
   <input type="email" id="sender_email" name="sender_email" required><br><br>
-  <label for="system_os">System OS:</label>
+  <label id="sys_os_label" for="system_os">System OS:</label>
   <select id="system_os" name="system_os">
     <option value="select">select</option>
     <option value="select">Select</option>
@@ -94,10 +94,10 @@ permalink: /support/contact-us/
     </optgroup>
   </select><br><br>
   <input type="submit" value="Submit"><br><br>
-<div class="alert alert-success" role="alert" style="display: none;">
+<div id="alert_successs" class="alert alert-success" role="alert" style="display: none;">
   Ticket was created!
 </div>
-<div class="alert alert-danger" role="alert1" style="display: none;">
+<div id="alert_fail" class="alert alert-danger" role="alert" style="display: none;">
   Error!
 </div>
 </form>
@@ -105,13 +105,16 @@ permalink: /support/contact-us/
 <script>
 const form = document.getElementById("ticketForm");
 const system_os = document.getElementById("system_os");
+const sys_os_label = document.getElementById("sys_os_label");
 
 const subject = document.getElementById("subject");
 subject.addEventListener("change", function (event) {
   if (subject.value === "open-question") {
     system_os.style.display = "none";
+    sys_os_label.style.display = "none";
   } else {
     system_os.style.display = "block";
+    sys_os_label.style.display = "block";
   }
 });
 
@@ -138,7 +141,7 @@ form.addEventListener("submit", function (event) {
  //   "x-cors-api-key": "temp_9206cde71da30d4a289d694d01ac277f"
   };
 
-  const url = 'https://corsproxy.io/?' + encodeURIComponent('https://proxy.cors.sh/https://dev.epicgames.com/portal/api/v1/services/tickets/submit/');
+  const url = 'https://corsproxy.io/?' + encodeURIComponent('https://proxys.cors.sh/https://dev.epicgames.com/portal/api/v1/services/tickets/submit/');
 
   fetch(url, {
     method: "POST",
@@ -162,15 +165,15 @@ form.addEventListener("submit", function (event) {
 });
 
 function showSuccess(message) {
-  const alert = document.querySelector(".alert");
-  alert.style.display = "block";
-  alert.textContent = message;
+  const alert_success = document.getElementById("alert_success");
+  alert_success.style.display = "block";
+  alert_success.textContent = message;
 }
 
 function showError(message, error) {
   console.error(error);
-  const alert1 = document.querySelector(".alert1");
-  alert1.style.display = "block";
-  alert1.textContent = `${message}: ${error}`;
+  const alert_fail = document.getElementById("alert_fail");
+  alert_fail.style.display = "block";
+  alert_fail.textContent = `${message}: ${error}`;
 }
 </script>
