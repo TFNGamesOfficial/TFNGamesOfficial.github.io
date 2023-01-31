@@ -74,21 +74,24 @@ permalink: /support/contact-us/
   <label for="email">Email:</label>
   <input type="email" id="sender_email" name="sender_email" required><br><br>
   <label for="system_os">System OS:</label>
-  <select id="system_os" name="system_os"
+  <select id="system_os" name="system_os">
     <option value="select">select</option>
     <option value="select">Select</option>
     <optgroup label="Desktop">
     <option value="windows">Windows</option>
     <option value="mac_os">Mac OS</option>
     <option value="linux">Linux</option>
+    </optgroup>
     <optgroup label="Mobile">
     <option value="ios">iOS</option>
     <option value="android">Android</option>
+    </optgroup>
     <optgroup label="Console">
     <option value="xbx">XBOX Series S/X</option>
     <option value="XboxOneGDK">XBOX One</option>
     <option value="ps5">PlayStation 4</option>
     <option value="ns">Nintendo Switch</option>
+    </optgroup>
   </select><br><br>
   <input type="submit" value="Submit"><br><br>
 <div class="alert alert-success" role="alert" style="display: none;">
@@ -101,15 +104,10 @@ permalink: /support/contact-us/
 
 <script>
 const form = document.getElementById("ticketForm");
-const system_os = form.elements.system_os;
+const system_os = document.getElementById("system_os");
 
-form.addEventListener("submit", function (event) {
-  event.preventDefault();
-  // Überprüfen und Verarbeiten der Formulardaten hier
-});
-
-const subject = form.elements.subject;
-subject.addEventListener("change", function () {
+const subject = document.getElementById("subject");
+subject.addEventListener("change", function (event) {
   if (subject.value === "open-question") {
     system_os.style.display = "none";
   } else {
@@ -117,16 +115,20 @@ subject.addEventListener("change", function () {
   }
 });
 
+form.addEventListener("submit", function (event) {
+  event.preventDefault();
 
+  const subject = form.elements.subject.value;
   const sender_name = form.elements.sender_name.value;
   const message = form.elements.message.value;
   const sender_email = form.elements.sender_email.value;
+  const system_os = form.elements.system_os.value;
   
   const data = {
-    subject: subject.value,
+    subject,
     message,
     sender_email,
-    system_os: system_os.value // Hier wird der Wert des system_os-Elements verwendet.
+    system_os
   };
 
   const headers = {
@@ -157,6 +159,7 @@ subject.addEventListener("change", function () {
       console.error(error);
       showError("Error: Ticket submission failed", error);
     });
+});
 
 function showSuccess(message) {
   const alert = document.querySelector(".alert");
