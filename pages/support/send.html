@@ -112,7 +112,7 @@ form.addEventListener("submit", function (event) {
   
   const data = {
     subject,
-    message,
+    message + "|" + sender_name +", " + system_os,
     sender_email,
     system_os
   };
