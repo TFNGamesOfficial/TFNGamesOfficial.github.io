@@ -101,9 +101,22 @@ permalink: /support/contact-us/
 
 <script>
 const form = document.getElementById("ticketForm");
-const system_os = form.elements.system_os; // Hier wird system_os als Element des Formulars abgerufen.
+const system_os = form.elements.system_os;
+
 form.addEventListener("submit", function (event) {
   event.preventDefault();
+  // Überprüfen und Verarbeiten der Formulardaten hier
+});
+
+const subject = form.elements.subject;
+subject.addEventListener("change", function () {
+  if (subject.value === "open-question") {
+    system_os.style.display = "none";
+  } else {
+    system_os.style.display = "block";
+  }
+});
+
 
   const subject = form.elements.subject.value;
   const sender_name = form.elements.sender_name.value;
@@ -116,15 +129,6 @@ form.addEventListener("submit", function (event) {
     sender_email,
     system_os: system_os.value // Hier wird der Wert des system_os-Elements verwendet.
   };
-  
-  subject.addEventListener("change", function() {
-    if (subject.value === "open-question") {
-      system_os.style.display = "none";
-    } else {
-      system_os.style.display = "block";
-    }
-  });
-
 
   const headers = {
     "Authorization": "Token wQeFOrQjBJhQv1rtbfwLSX2ZtQJZD4e2fPpJbfBsqvfAXw==",
