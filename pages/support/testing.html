@@ -1,52 +1,81 @@
 ---
 layout: default
-title: Contact u
+title: Speed Test
 weight: 2
-permalink: /support/dcontact/
+permalink: /features/speedtest/
 ---
 
-<head>
-    <script>
-      async function sendRequest() {
-        const form = document.getElementById("ticketForm");
-        const subject = form.elements.subject.value;
-        const message = form.elements.message.value;
-        const sender_email = form.elements.sender_email.value;
-        const system_os = form.elements.system_os.value;
+<div id="container">
+      <h1>Internet Speed Test</h1>
+      <div id="downloadSpeed">Download Speed: <span id="downloadResult">0 Mbps</span></div>
+      <div id="uploadSpeed">Upload Speed: <span id="uploadResult">0 Mbps</span></div>
+      <div id="ping">Ping: <span id="pingResult">0 ms</span></div>
+    </div>
+<script>
+  // Function to measure download speed
+  function measureDownloadSpeed() {
+    var startTime, endTime;
+    var download = new Image();
+    var downloadSize = 100000; // Size of the file to be downloaded in bytes
 
-        const data = {
-          subject,
-          message,
-          sender_email,
-          system_os
-        };
+    download.onload = function() {
+      endTime = new Date().getTime();
+      var duration = (endTime - startTime) / 1000;
+      var bitsLoaded = downloadSize * 8;
+      var speedBps = (bitsLoaded / duration).toFixed(2);
+      var speedKbps = (speedBps / 1024).toFixed(2);
+      var speedMbps = (speedKbps / 1024).toFixed(2);
 
-        const headers = {
-          "Authorization": "Token wQeFOrQjBJhQv1rtbfwLSX2ZtQJZD4e2fPpJbfBsqvfAXw==",
-          "Content-Type": "application/json",
-        };
+      document.getElementById("downloadResult").innerHTML = speedMbps + " Mbps";
+    };
 
-        const response = await fetch("https://dev.epicgames.com/portal/api/v1/services/tickets/submit/", {
-          method: "POST",
-          headers,
-          body: JSON.stringify(data)
-        });
+    startTime = new Date().getTime();
+    download.src = "randomByteGenerator.php?n=" + downloadSize;
+  }
 
-        if (!response.ok) {
-          console.error("Error: Ticket submission failed");
-          return;
-        }
+  // Function to measure upload speed
+  function measureUploadSpeed() {
+    var startTime, endTime;
+    var file = new Blob(["test"], { type: "text/plain" });
+    var fileSize = file.size;
+    var xhr = new XMLHttpRequest();
 
-        console.log("Success: Ticket submitted");
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState === XMLHttpRequest.DONE) {
+        endTime = new Date().getTime();
+        var duration = (endTime - startTime) / 1000;
+        var bitsLoaded = fileSize * 8;
+        var speedBps = (bitsLoaded / duration).toFixed(2);
+        var speedKbps = (speedBps / 1024).toFixed(2);
+        var speedMbps = (speedKbps / 1024).toFixed(2);
+
+        document.getElementById("uploadResult").innerHTML = speedMbps + " Mbps";
       }
-    </script>
-  </head>
+    };
 
-    <form id="ticketForm">
-      <input type="text" name="subject" placeholder="Subject">
-      <input type="text" name="message" placeholder="Message">
-      <input type="text" name="sender_email" placeholder="Email">
-      <input type="text" name="system_os" placeholder="OS">
-      <button type="button" onclick="sendRequest()">Submit Ticket</button>
-    </form>
+    startTime = new Date().getTime();
+    xhr.open("POST", "upload.php", true);
+    xhr.send(file);
+  }
+
+  // Function to measure latency
+  function measureLatency() {
+    var startTime, endTime;
+    var latencyTest = new Image();
+
+    latencyTest.onload = function() {
+      endTime = new Date().getTime();
+      var duration = (endTime - startTime).toFixed(0);
+      document.getElementById("pingResult").innerHTML = duration + " ms";
+    };
+
+    startTime = new Date().getTime();
+    latencyTest.src = "ping.php";
+  }
+
+  // Call the functions to measure the speeds and latency
+  measureDownloadSpeed();
+  measureUploadSpeed();
+  measureLatency();
+</script>
  
