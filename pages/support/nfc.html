@@ -1,0 +1,33 @@
+---
+layout: default
+title: NFC
+weight: 2
+permalink: /features/nfc-reader/
+---
+
+
+<html>
+  <head>
+    <title>NFC-Kartenleseanwendung</title>
+  </head>
+  <body>
+    <div id="result"></div>
+    <script>
+      if ("NDEFReader" in window) {
+        const ndef = new NDEFReader();
+        ndef.scan().then(() => {
+          ndef.addEventListener("readingerror", () => {
+            document.getElementById("result").textContent = "Diese Karte ist nicht berechtigt oder ein Fehler ist aufgetreten!";
+          });
+          ndef.addEventListener("reading", ({ message }) => {
+            document.getElementById("result").textContent = `Daten auf der Karte: ${message}`;
+          });
+        }).catch(() => {
+          document.getElementById("result").textContent = "Diese Karte ist nicht berechtigt oder ein Fehler ist aufgetreten!";
+        });
+      } else {
+        document.getElementById("result").textContent = "Ihr Gerät unterstützt kein NFC.";
+      }
+    </script>
+  </body>
+</html>
