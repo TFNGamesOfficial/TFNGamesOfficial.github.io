@@ -35,6 +35,9 @@ nav_exclude:                                            # The following paths ar
   - de/nfc.html
   - de/send.html
   - de/privacy-policy.md
+  - de/devnite.md
+  - de/projects.html
+  - de/blog.html
 
 
 ### Author Info ###

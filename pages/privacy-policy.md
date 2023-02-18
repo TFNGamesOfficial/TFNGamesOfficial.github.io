@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Privacy Policy
-permalink: /privacy-policy/
+permalink: /en-US/privacy-policy/
 ---
 
 # Privacy Policy for TFNGames
