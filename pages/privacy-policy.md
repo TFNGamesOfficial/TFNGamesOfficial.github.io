@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Privacy Policy
-permalink: /en-US/privacy-policy/
+permalink: /privacy-policy/
 ---
 
 # Privacy Policy for TFNGames
@@ -49,3 +49,5 @@ TFNGames reserves the right to change this Privacy Policy at any time. The curre
 
 ## 7. Contact
 If you have any questions or comments about this Privacy Policy, you can contact us. Our contact details can be found on our website.
+
+Last updated: February 18th, 2023
