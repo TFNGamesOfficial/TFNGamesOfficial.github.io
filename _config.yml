@@ -32,6 +32,8 @@ nav_exclude:                                            # The following paths ar
   - de/launchersp.md
   - de/support/launcherlds.md
   - de/support/errorcodes/TGLE-404-LF.md
+  - de/nfc.html
+  - de/send.html
   - de/privacy-policy.md
 
 

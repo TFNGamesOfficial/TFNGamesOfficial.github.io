@@ -1,6 +1,6 @@
 ---
 layout: page
-permalink: /support/launcher/
+permalink: /en-US/support/launcher/
 ---
 # Recent issues
 
