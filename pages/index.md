@@ -11,3 +11,4 @@ Please select a Language to continue:
 
 More languages will be available later!
 
+**The game and website is currently unavailable! For more informations check our social media channels**
