@@ -1,5 +1,5 @@
 ---
 layout: page
 title: Devnite
-permalink: /en-US/devnite
+permalink: /devnite
 ---

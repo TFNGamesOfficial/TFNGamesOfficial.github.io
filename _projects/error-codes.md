@@ -4,11 +4,8 @@ tools: [Error codes]
 image:
 ---
 
-## STAR Games projects
-STAR Games error codes can be found [here](https://www.tfngames.tk/support/error-codes#star-games)
 
-
-### TFNGames Launcher
+### DevGames Launcher
 - [TGLE-404-LF](https://google.com)
 
 ### DevNite

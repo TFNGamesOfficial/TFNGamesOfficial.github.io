@@ -31,20 +31,6 @@ nav_exclude:                                            # The following paths ar
   - pages/support/send.html
   - pages/support/errorcodes/TGLE-404-LF.md
   - pages/privacy-policy.md
-  - de/tags.html
-  - de/404.html
-  - de/index.md
-  - de/privacy policy.md
-  - de/docs.html
-  - de/launchersp.md
-  - de/support/launcherlds.md
-  - de/support/errorcodes/TGLE-404-LF.md
-  - de/nfc.html
-  - de/support/send.html
-  - de/privacy-policy.md
-  - de/devnite.md
-  - de/projects.html
-  - de/blog.html
 
 
 ### Author Info ###
