@@ -39,6 +39,17 @@ permalink: /support/contact-us/
   background-color: #fff;
 }
 
+  #ticketForm select, #ticketForm textarea, #ticketForm input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  outline: none;
+  background-color: #fff;
+}
+
 #ticketForm textarea {
   height: 150px;
   resize: none;
@@ -58,15 +69,19 @@ permalink: /support/contact-us/
   background-color: #444;
 }
 
+    .not-selectable {
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+  }
   </style>
 </head>
 
 <form id="ticketForm">
   <label for="subject">Subject:</label>
-  <select id="subject" name="subject" required>
+  <select class="not-selectable" id="subject" name="subject" required>
     <option value="technical-support">Technical Support</option>
-    <option value="open-question">Question</option>
-    <option value="player-support">Player Support</option>
   </select><br><br>
   <label for="sender_name">Displayname:</label>
   <input type="text" id="sender_name" name="sender_name"></textarea><br><br>
@@ -92,7 +107,21 @@ permalink: /support/contact-us/
     <option value="ps5">PlayStation 4</option>
     <option value="ns">Nintendo Switch</option>
     </optgroup>
-  </select><br><br id="br_tag">
+  </select>
+<selec id="system_other" name="system_other" required>
+    <option value="select">Select</option>
+    <optgroup label="Support">
+    <option value="player_support">Player Support</option>
+    <option value="technical_support">Technical Support</option>
+    </optgroup>
+    <optgroup label="Report">
+    <option value="bug_report">Bug Report</option>
+    <option value="island_report">Island Report</option>
+    <option value="player_report">Player Report</option>
+    <option value="Server_Issue">Server Issue</option>
+  </optgroup>
+  </select>
+  <br><br id="br_tag">
   <input type="submit" value="Submit"><br><br>
 <div id="alert_success" class="alert alert-success" role="alert" style="display: none;">
   Ticket was created!
@@ -128,12 +157,14 @@ form.addEventListener("submit", function (event) {
   const message = form.elements.message.value;
   const sender_email = form.elements.sender_email.value;
   const system_os = form.elements.system_os.value;
+  const system_other = form.elements.system_other.value;
   
   const data = {
     subject,
     message,
     sender_email,
-    system_os
+    system_os,
+    system_other
   };
 
   const headers = {
@@ -170,6 +201,7 @@ function showSuccess(message) {
   const alert_success = document.getElementById("alert_success");
   alert_success.style.display = "block";
   alert_success.textContent = message;
+  form.style.display = "none";
 }
 
 function showError(message, error) {
