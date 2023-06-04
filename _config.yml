@@ -17,18 +17,12 @@ plugins:
 ### Navbar Settings ###
 nav_exclude:                                            # The following paths are excluded from navbar
   - pages/tags.html
-  - pages/blog.html
-  - pages/devnite.md
-  - pages/docs.html
-  - pages/projects.html
   - pages/status.html
   - pages/404.html
   - pages/index.md
   - pages/privacy policy.md
-  - pages/docs.html
   - pages/launchersp.md
   - pages/support/launcherlds.md
-  - pages/support/send.html
   - pages/support/errorcodes/TGLE-404-LF.md
   - pages/privacy-policy.md
 
