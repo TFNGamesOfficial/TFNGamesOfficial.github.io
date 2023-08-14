@@ -21,4 +21,4 @@ It is now possible to create a DevGames account with our Discord bot!
 3. After that, you should get a message like this.
 ![Account created](https://tfngamesofficial.github.io/assets/created_dg_account.png)
 
-4. You will receive an email with your current password. You can change it with the /change-password command!
+4. You will receive an email with your current password. You can change it with the /change-password command.
