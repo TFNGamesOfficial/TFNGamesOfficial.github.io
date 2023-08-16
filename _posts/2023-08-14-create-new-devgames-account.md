@@ -26,4 +26,4 @@ It is now possible to create a DevGames account with our Discord bot!
 4. (optional): To change your password please create a support form with the email used on the account. We are working on a way to do this via the bot.
 
 <hr>
-last updated: **16th August 2023 | 3:55**
+last updated: **16th August 2023 at 3:55 am**

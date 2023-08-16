@@ -23,7 +23,8 @@ Yea, we have some changes:
 <hr>
 
 *The account system will release on 16th September 2023
+<br>
 **Skins, Emotes, Loading Screens, Music Packs and Banners
 
 <hr>
-last updated: **16th August 2023 | 3:55**
+last updated: **16th August 2023 at 3:55 am**
