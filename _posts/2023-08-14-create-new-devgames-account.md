@@ -1,6 +1,6 @@
 ---
 title: Create accounts via Discord
-tags: [RECENTLY PUBLISHED, DISCOR, Accounts]
+tags: [RECENTLY PUBLISHED, DISCORD, ACCOUNTS]
 style: border
 color: danger
 description: You can now create accounts via Discord. Learn more...
@@ -24,3 +24,6 @@ It is now possible to create a DevGames account with our Discord bot!
 3. After completing the steps you should be able to use our Services! If you still encounter issues please contact us.
 
 4. (optional): To change your password please create a support form with the email used on the account. We are working on a way to do this via the bot.
+
+<hr>
+last updated: **16th August 2023 | 3:55**
