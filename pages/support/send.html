@@ -79,49 +79,16 @@ permalink: /support/contact-us/
 </head>
 
 <form id="ticketForm">
-  <label for="subject">Subject:</label>
+  <label for="subject">Subject</label>
   <select class="not-selectable" id="subject" name="subject" required>
-    <option value="technical-support">Technical Support</option>
+    <option value="technical-support">Save The Island</option>
   </select><br><br>
-  <label for="sender_name">Displayname:</label>
+  <label for="sender_name">Displayname</label>
   <input type="text" id="sender_name" name="sender_name"></textarea><br><br>
-  <label for="message">Message:</label>
+  <label for="message">Why do you need help?</label>
   <textarea id="message" name="message" required></textarea><br><br>
-  <label for="email">Email:</label>
+  <label for="email">Email</label>
   <input type="email" id="sender_email" name="sender_email" required><br><br>
-  <label id="sys_os_label" for="system_os">System OS:</label>
-  <select id="system_os" name="system_os">
-    <option value="select">Select</option>
-    <optgroup label="Desktop">
-    <option value="windows">Windows</option>
-    <option value="mac_os">Mac OS</option>
-    <option value="linux">Linux</option>
-    </optgroup>
-    <optgroup label="Mobile">
-    <option value="ios">iOS</option>
-    <option value="android">Android</option>
-    </optgroup>
-    <optgroup label="Console">
-    <option value="XSX">XBOX Series S/X</option>
-    <option value="XboxOneGDK">XBOX One</option>
-    <option value="ps5">PlayStation 4</option>
-    <option value="ns">Nintendo Switch</option>
-    </optgroup>
-  </select>
-<label id="sys_other_label" for="system_other">Type:</label>
-<select id="system_other" name="system_other" required>
-    <option value="select">Select</option>
-    <optgroup label="Support">
-    <option value="player_support">Player Support</option>
-    <option value="technical_support">Technical Support</option>
-    </optgroup>
-    <optgroup label="Report">
-    <option value="bug_report">Bug Report</option>
-    <option value="island_report">Island Report</option>
-    <option value="player_report">Player Report</option>
-    <option value="Server_Issue">Server Issue</option>
-  </optgroup>
-  </select>
   <br><br id="br_tag">
   <input type="submit" value="Submit"><br><br>
 <div id="alert_success" class="alert alert-success" role="alert" style="display: none;">
@@ -134,8 +101,8 @@ permalink: /support/contact-us/
 
 <script>
 const form = document.getElementById("ticketForm");
-const system_os = document.getElementById("system_os");
-const sys_os_label = document.getElementById("sys_os_label");
+// const system_os = document.getElementById("system_os");
+// const sys_os_label = document.getElementById("sys_os_label");
 
 const subject = document.getElementById("subject");
 subject.addEventListener("change", function (event) {
@@ -169,7 +136,7 @@ form.addEventListener("submit", function (event) {
   };
 
   const headers = {
-    "Authorization": "Token ueY2C2iHPN4WQXW1YRdVIIKmPW8yGhQmIlGxosXuE2yYfA==",
+    "Authorization": "Token YdS--SU-F6o8geBTK1w7_vySKEypXsrEwodhV7bnVvzRQg==",
     "Content-Type": "application/json",
     "Access-Control-Allow-Origin": "*",
  //   "x-cors-api-key": "temp_9206cde71da30d4a289d694d01ac277f"
