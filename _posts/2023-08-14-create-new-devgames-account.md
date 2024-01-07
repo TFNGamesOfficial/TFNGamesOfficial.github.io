@@ -1,6 +1,6 @@
 ---
 title: Create accounts via Discord
-tags: [RECENTLY PUBLISHED, DISCORD, ACCOUNTS]
+tags: [DISCORD, ACCOUNTS]
 style: border
 color: danger
 description: You can now create accounts via Discord. Learn more...
