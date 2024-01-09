@@ -18,7 +18,56 @@ permalink: /save-the-island/
             margin: 0;
             padding: 0;
         }
+/* Rounded Picture Styles */
+.rounded-picture {
+    text-align: center;
+    margin-top: 20px;
+padding: 25px;
+    position: relative; /* Set the position to relative for absolute positioning */
+}
 
+.rounded-picture img {
+    max-height: 500px;
+    min-height: 500px;
+    width: 1328px;
+    padding: 25px;
+	margin-top: -50px;
+    border-radius: 40px;
+    object-fit: cover; /* or use 'cover' based on your preference */
+}
+
+.overlay {
+    max-height: 500px;
+    min-height: 500px;
+    width: 1328px;
+    margin-top: -25;
+    margin-left: 76px;
+    border-radius: 15px;
+    text-align: center;
+    position: absolute; /* Set the position to relative for absolute positioning */
+      background-color: rgba(0, 0, 0, 0.72); /* Hier können Sie die Farbe und die Transparenz anpassen */
+    }
+
+.image-text {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+white-space: nowrap; /* Verhindert das Umbruchen des Textes in eine neue Zeile */
+}
+
+.image-text h2 {
+    font-size: 80px;
+    margin-bottom: 10px;
+line-height: 45px;
+}
+
+.image-text p {
+    font-size: 30px;
+line-height: -45px;
+    color: #aaa;
+}
 
 </style>
 </head>
@@ -33,5 +82,16 @@ permalink: /save-the-island/
         <a href="/save-the-island/help" class="nav-link">HELP</a>
     </nav>
 
+
+    <div class="rounded-picture">
+<div class="overlay"></div>
+    <img src="https://wallpaper.dog/large/10812313.jpg" alt="Island Creator Image">
+    <div class="image-text">
+        <h2>Save The Island</h2>
+        <p>The Save The Island event quests are now available! Earn In-Game rewards and more. Join now</p>
+<button class="btn btn-primary">Join now!</button>
+
+    </div>
+</div>
     
 </body></html>
