@@ -21,46 +21,38 @@ permalink: /save-the-island/test
 
         /* Rounded Picture Styles */
         .rounded-picture {
-    text-align: center;
-    margin-top: 20px;
-padding: 25px;
-    position: relative; /* Set the position to relative for absolute positioning */
-}
+            text-align: center;
+            margin-top: 20px;
+            padding: 25px;
+            position: relative; /* Set the position to relative for absolute positioning */
+        }
 
-.rounded-picture img {
-    max-height: 500px;
-    min-height: 500px;
-    width: 1328px;
-    padding: 25px;
-    margin-top: -50px;
-    border-radius: 40px;
-    object-fit: cover; /* or use 'cover' based on your preference */
-}
+        .rounded-picture img {
+            max-height: 500px;
+            min-height: 500px;
+            width: 1328px;
+            padding: 25px;
+            margin-top: -50px;
+            border-radius: 40px;
+            object-fit: cover; /* or use 'cover' based on your preference */
+        }
 
-        .rounded-overlay {
-    text-align: center;
-                margin-top: 20px;
-padding: 25px;
-    position: absolute; /* Set the position to relative for absolute positioning */
-}
-
-.overlay {
-    max-height: 500px;
-    min-height: 500px;
-    width: 1328px;
-    padding: 25px;
-    margin-top: -50px;
-    border-radius: 40px;
-    object-fit: cover; /* or use 'cover' based on your preference */
-background-color: rgba(0, 0, 0, 0.72);
-}
+        .overlay {
+            max-height: 500px;
+            min-height: 500px;
+            width: 1328px;
+            margin-top: -50px; /* Adjusted margin-top for proper overlay positioning */
+            border-radius: 40px;
+            text-align: center;
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.72);
+        }
 
         .image-text {
             position: absolute;
-            top: 50%;
+            top: 45%;
             left: 50%;
             transform: translate(-50%, -50%);
-            text-align: center;
             color: #fff;
         }
 
@@ -72,7 +64,7 @@ background-color: rgba(0, 0, 0, 0.72);
 
         .image-text p {
             font-size: 30px;
-            line-height: 45px;
+            line-height: -45px;
             color: #aaa;
         }
 
