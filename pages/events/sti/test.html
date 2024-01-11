@@ -21,27 +21,38 @@ permalink: /save-the-island/test
 
         /* Rounded Picture Styles */
         .rounded-picture {
-            text-align: center;
-            margin-top: 20px;
-            position: relative;
-            overflow: hidden; /* Added overflow property */
-        }
+    text-align: center;
+    margin-top: 20px;
+padding: 25px;
+    position: relative; /* Set the position to relative for absolute positioning */
+}
 
-        .rounded-picture img {
-            max-width: 100%;
-            border-radius: 40px;
-            object-fit: cover;
-        }
+.rounded-picture img {
+    max-height: 500px;
+    min-height: 500px;
+    width: 1328px;
+    padding: 25px;
+    margin-top: -50px;
+    border-radius: 40px;
+    object-fit: cover; /* or use 'cover' based on your preference */
+}
 
-        .overlay {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
-            background-color: rgba(0, 0, 0, 0.72);
-            border-radius: 40px;
-        }
+        .rounded-overlay {
+    text-align: center;
+    margin-top: 20px;
+padding: 25px;
+    position: relative; /* Set the position to relative for absolute positioning */
+}
+
+.overlay {
+    max-height: 500px;
+    min-height: 500px;
+    width: 1328px;
+    padding: 25px;
+    margin-top: -50px;
+    border-radius: 40px;
+    object-fit: cover; /* or use 'cover' based on your preference */
+}
 
         .image-text {
             position: absolute;
@@ -153,7 +164,9 @@ permalink: /save-the-island/test
     </nav>
 
     <div class="rounded-picture">
-        <div class="overlay"></div>
+        <div class="rounded-overlay">
+            <div class="overlay"></div>
+        </div>
         <img src="https://wallpaper.dog/large/10812313.jpg" alt="Save The Island">
         <div class="image-text">
             <h2>Save The Island</h2>
