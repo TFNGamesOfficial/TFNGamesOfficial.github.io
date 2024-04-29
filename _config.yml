@@ -15,11 +15,11 @@ plugins:
 
 
 ### Navbar Settings ###
-nav_exclude:                                            # The following paths are excluded from navbar
+nav_exclude:                   # The following paths are excluded from navbar
+  - pages/404.html
   - pages/tags.html
   - pages/status.html
   - pages/index.md
-  - pages/404.html
   - pages/privacy policy.md
   - pages/launchersp.md
   - pages/support/launcherlds.md
