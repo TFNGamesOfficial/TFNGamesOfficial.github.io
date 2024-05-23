@@ -17,7 +17,6 @@ plugins:
 ### Navbar Settings ###
 nav_exclude:                                            # The following paths are excluded from navbar
   - pages/tags.html
-  - pages/404.html
   - pages/status.html
   - pages/index.md
   - pages/privacy policy.md
@@ -29,7 +28,6 @@ nav_exclude:                                            # The following paths ar
   - pages/events/sti/login.htm
   - pages/events/sti/test.html
   - pages/privacy-policy.md
-  - pages/404.html
 
 ### Author Info ###
 author:
