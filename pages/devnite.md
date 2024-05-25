@@ -1,5 +1,5 @@
 ---
 layout: page
-title: Devnite
-permalink: /devnite
+title: Save The Island
+permalink: /save-the-island/
 ---
