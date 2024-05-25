@@ -178,7 +178,8 @@ padding: 6px;
     <div class="image-text">
         <h2>Save The Island</h2>
         <p>The Save The Island event quests are now available! Earn In-Game rewards and more. Join now</p>
-<button class="btn btn-primary">Starting August 1st!</button>
+<button class="btn btn-primary" id="loginButton">Try it now!</button>
+
     </div>
 </div>
 <center><h4>Steps</h4></center>
@@ -199,4 +200,58 @@ padding: 6px;
             <roundtext>Complete additional "Fun Quests" in Battle Royale for additional xp.</roundtext>
         </div></div>
     
-</body></html>
+</body><script>
+const epicOAuthURL = 'https://www.epicgames.com/id/authorize'; // Hier die tatsächliche URL einfügen
+const clientID = 'xyza7891D9UWmFmhLv4Qyprz2w9AQiof'; // Hier deine Epic Client-ID einfügen
+const accessTokenKey = 'epicAccessToken';
+
+const loginButton = document.getElementById('loginButton');
+const usernameDisplay = document.getElementById('usernameDisplay');
+
+// Funktion zum Lesen des Access Tokens aus dem URL-Parameter
+function getAccessTokenFromUrl() {
+    const urlParams = new URLSearchParams(window.location.hash.substring(1));
+    return urlParams.get('access_token');
+}
+
+// Funktion zum Speichern des Access Tokens im Local Storage
+function saveAccessTokenToLocalStorage(token) {
+    localStorage.setItem(accessTokenKey, token);
+}
+
+// Funktion zum Laden des Access Tokens aus dem Local Storage
+function loadAccessTokenFromLocalStorage() {
+    return localStorage.getItem(accessTokenKey);
+}
+
+// Funktion zum Laden des Benutzernamens
+async function loadUsername() {
+    const accessToken = loadAccessTokenFromLocalStorage();
+    if (accessToken) {
+        try {
+            const response = await axios.get('https://YOUR_EPIC_API_ENDPOINT/userinfo', {
+                headers: {
+                    'Authorization': `Bearer ${accessToken}`
+                }
+            });
+            const username = response.data.username;
+            usernameDisplay.textContent = `Logged in as: ${username}`;
+        } catch (error) {
+            console.error('Error loading username:', error);
+        }
+    }
+}
+
+// Beim Laden der Seite prüfen, ob ein Access Token vorhanden ist und den Benutzernamen laden
+window.onload = loadUsername();
+
+loginButton.addEventListener('click', () => {
+    window.location.href = `${epicOAuthURL}?client_id=${clientID}&redirect_uri=${window.location.href}&response_type=token`;
+});
+
+// Nach erfolgreicher Anmeldung den Access Token aus der URL lesen und speichern
+const accessToken = getAccessTokenFromUrl();
+if (accessToken) {
+    saveAccessTokenToLocalStorage(accessToken);
+}
+</script></html>
