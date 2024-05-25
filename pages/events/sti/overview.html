@@ -204,16 +204,16 @@ padding: 6px;
 </body><script>
         function redirectToEpicLogin() {
             // Client ID für Ihre Anwendung
-            var clientId = "Ihr_Client_ID";
+            var clientId = "xyza7891D9UWmFmhLv4Qyprz2w9AQiof";
 
             // Redirect-URI für Ihre Anwendung
-            var redirectUri = encodeURIComponent("https://example.com/callback");
+            // var redirectUri = ${window.location.href}
 
             // Scope für die angeforderten Berechtigungen
             var scope = encodeURIComponent("basic_profile");
 
             // Konstruiere die Autorisierungs-URL
-            var authorizationUrl = "https://www.epicgames.com/id/authorize?client_id=" + clientId + "&redirect_uri=" + redirectUri + "&response_type=code&scope=" + scope;
+            var authorizationUrl = "https://www.epicgames.com/id/authorize?client_id=" + clientId + "&redirect_uri=" + `${window.location.href}` + "&response_type=code&scope=" + scope;
 
             // Weiterleitung zur Epic-Login-Seite
             window.location.href = authorizationUrl;
@@ -228,8 +228,8 @@ padding: 6px;
             function getAccessToken(authorizationCode) {
                 // Konstruiere die URL zum Token-Endpunkt
                 var tokenEndpoint = "https://api.epicgames.dev/epic/oauth/v2/token";
-                var clientId = "Ihr_Client_ID";
-                var clientSecret = "Ihr_Client_Secret";
+                var clientId = "xyza7891D9UWmFmhLv4Qyprz2w9AQiof";
+                var clientSecret = "ECRK8EM/omdhRyf+Wa6IjLeNdvUHNka67Dsn3Qn0L4A";
 
                 // Konstruiere die Anfrage
                 var formData = new FormData();
