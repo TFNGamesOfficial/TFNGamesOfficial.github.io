@@ -84,7 +84,10 @@ function logout() {
 if (checkLoginStatus()) {
     // Benutzer ist angemeldet
     // Zeige angemeldeten Inhalt an
-	decodeToken(accessToken);
+	const payload = JSON.parse(atob(token.split('.')[1]));
+
+            // Extract the displayname from the payload
+            const displayName = payload.dn;
 	document.getElementById("loggedInMessage").innerText = displayName;
 } else {
     // Benutzer ist nicht angemeldet
