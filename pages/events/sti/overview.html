@@ -65,7 +65,6 @@ function checkLoginStatus() {
     if (accessToken) {
         // Der Benutzer ist angemeldet
 	    decodeToken(accessToken);
-	    document.getElementById("loggedInMessage").innerText = displayName;
         return true;
     } else {
         // Der Benutzer ist nicht angemeldet
@@ -84,11 +83,7 @@ function logout() {
 if (checkLoginStatus()) {
     // Benutzer ist angemeldet
     // Zeige angemeldeten Inhalt an
-	const payload = JSON.parse(atob(token.split('.')[1]));
 
-            // Extract the displayname from the payload
-            const displayName = payload.dn;
-	document.getElementById("loggedInMessage").innerText = displayName;
 } else {
     // Benutzer ist nicht angemeldet
     // Zeige Anmeldeformular oder Anmeldeoptionen an
