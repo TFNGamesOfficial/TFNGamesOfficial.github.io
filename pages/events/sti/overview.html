@@ -164,7 +164,7 @@ padding: 6px;
 .left {
     font-size: 11px;
     line-height: 16px;
-    text-transform: capitalize;
+    text-transform: capitalize !important;
     padding: 6px;
     padding-top: 17px;
     padding-left: calc(100% - 25%);
@@ -253,7 +253,7 @@ nav a.dropdown-item:hover {
             const displayName = payload.dn;
 
             // Update the button text to display the displayname
-            document.getElementById("loggedInMessage").innerText = "Logged in as " + displayName;
+            document.getElementById("loggedInMessage").innerText = displayName.toUpper;
         }
 
         // Check if there's an authorization code in the URL (returned from Epic Games after login)
