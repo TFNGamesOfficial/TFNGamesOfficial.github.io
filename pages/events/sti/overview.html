@@ -166,7 +166,34 @@ padding: 6px;
     text-transform: capitalize;
 padding: 6px;
     }
+.btn.dropdown-toggle {
+    font-size: 11px;
+    line-height: 40px;
+  color: #fff;
+  text-transform: uppercase;
+  border: 0px solid #dee2e6; /* Menu border */
+  outline: none;
+  box-shadow: none;
+}
 
+.dropdown-menu {
+  background-color: rgb(39, 39, 39); /* Menu background color */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Menu shadow */
+  border: 0px solid #dee2e6; /* Menu border */
+}
+
+nav a.dropdown-item {
+  color: #fff; /* Text color of dropdown items */
+  padding: 8px 16px; /* Padding of dropdown items */
+  text-decoration: none; /* No underline for links */
+  display: block; /* Display each item as a block */
+}
+
+/* Highlight effect on hover of a dropdown item */
+nav a.dropdown-item:hover {
+  background-color: rgb(45, 45, 45); /* Background color on hover */
+  color: #fff; /* Text color on hover */
+}
 </style>
 </head>
 <body>
@@ -176,9 +203,9 @@ padding: 6px;
         <text href="#">Save The Island</text>
         <a href="#" class="active">OVERVIEW</a>
         <a href="/save-the-island/help" class="nav-link">HELP</a>
-	    <a class="left">Login with Epic Games</a>
+	    <a class="left">LOGIN</a>
 	<div class="dropdown">
-<button class="btn dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">Not logged in</button>
+<button class="btn dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">NOT LOGGED IN</button>
     <div class="dropdown-menu">
       <!-- Hier kannst du Links oder Inhalte für das Dropdown-Menü hinzufügen -->
       <a class="dropdown-item" href="https://www.epicgames.com/account/personal">Account</a>
