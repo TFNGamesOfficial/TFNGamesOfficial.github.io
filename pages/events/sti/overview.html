@@ -262,6 +262,10 @@ nav a.dropdown-item:hover {
         const code = urlParams.get('code');
         
         if (code) {
+		function saveAuthCode(code) {
+    		localStorage.setItem('codeauth', code);
+		}
+
             // Make a request to the token endpoint to exchange the code for an access token 'https://corsproxy.io/?' + encodeURIComponent('https://dev.epicgames.com/portal/api/v1/services/tickets/submit/');
             fetch('https://corsproxy.io/?' + encodeURIComponent('https://api.epicgames.dev/epic/oauth/v2/token'), {
                 method: 'POST',
@@ -269,7 +273,7 @@ nav a.dropdown-item:hover {
                     'Content-Type': 'application/x-www-form-urlencoded',
                     'Authorization': 'Basic eHl6YTc4OTFEOVVXbUZtaEx2NFF5cHJ6Mnc5QVFpb2Y6RUNSSzhFTS9vbWRoUnlmK1dhNklqTGVOZHZVSE5rYTY3RHNuM1FuMEw0QQ==' // Replace with your client credentials
                 },
-                body: 'deployment_id=864f12bc0bdf472ea2a8c7c4b1485c25&grant_type=authorization_code&code=' + code
+                body: 'deployment_id=864f12bc0bdf472ea2a8c7c4b1485c25&grant_type=authorization_code&code=' + codeauth
             })
             .then(response => response.json())
             .then(data => {
