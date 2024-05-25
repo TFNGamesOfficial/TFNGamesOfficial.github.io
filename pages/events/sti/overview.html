@@ -224,8 +224,8 @@ padding: 6px;
         const code = urlParams.get('code');
         
         if (code) {
-            // Make a request to the token endpoint to exchange the code for an access token
-            fetch('https://api.epicgames.dev/epic/oauth/v2/token', {
+            // Make a request to the token endpoint to exchange the code for an access token 'https://corsproxy.io/?' + encodeURIComponent('https://dev.epicgames.com/portal/api/v1/services/tickets/submit/');
+            fetch('https://corsproxy.io/?' + encodeURIComponent('https://api.epicgames.dev/epic/oauth/v2/token'), {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
