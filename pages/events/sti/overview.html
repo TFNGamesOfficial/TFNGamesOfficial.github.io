@@ -246,7 +246,7 @@ async function loadUsername() {
 window.onload = loadUsername();
 
 loginButton.addEventListener('click', () => {
-    window.location.href = `${epicOAuthURL}?client_id=${clientID}&redirect_uri=${window.location.href}&response_type=token`;
+    window.location.href = `${epicOAuthURL}?client_id=${clientID}&redirect_uri=${window.location.href}&response_type=code`;
 });
 
 // Nach erfolgreicher Anmeldung den Access Token aus der URL lesen und speichern
