@@ -307,9 +307,11 @@ function logout() {
 if (checkLoginStatus()) {
     // Benutzer ist angemeldet
     // Zeige angemeldeten Inhalt an
+	document.getElementById("loggedInMessage").innerText = displayName;
 } else {
     // Benutzer ist nicht angemeldet
     // Zeige Anmeldeformular oder Anmeldeoptionen an
+	document.getElementById("loggedInMessage").innerText = "not logged in";
 }
 
     </script>
