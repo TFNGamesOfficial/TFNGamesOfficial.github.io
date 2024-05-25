@@ -178,8 +178,8 @@ padding: 6px;
     <div class="image-text">
         <h2>Save The Island</h2>
         <p>The Save The Island event quests are now available! Earn In-Game rewards and more. Join now</p>
-<button class="btn btn-primary" onclick="redirectToEpicLogin()">Try it now!</button>
-	    <p id="loggedInMessage"></p>
+<button class="btn btn-primary" onclick="loginWithEpic()">Try it now!</button>
+    <p id="loggedInMessage"></p>
 
     </div>
 </div>
@@ -202,78 +202,44 @@ padding: 6px;
         </div></div>
     
 </body><script>
-        function redirectToEpicLogin() {
-            // Client ID für Ihre Anwendung
-            var clientId = "xyza7891D9UWmFmhLv4Qyprz2w9AQiof";
-
-            // Redirect-URI für Ihre Anwendung
-            // var redirectUri = ${window.location.href}
-
-            // Scope für die angeforderten Berechtigungen
-            var scope = encodeURIComponent("basic_profile");
-
-            // Konstruiere die Autorisierungs-URL
-            var authorizationUrl = "https://www.epicgames.com/id/authorize?client_id=" + clientId + "&redirect_uri=" + `${window.location.href}` + "&response_type=code&scope=" + scope;
-
-            // Weiterleitung zur Epic-Login-Seite
-            window.location.href = authorizationUrl;
+        function loginWithEpic() {
+            // Redirect the user to the Epic Games login page
+            window.location.href = "https://www.epicgames.com/id/authorize?client_id={your_client_id}&response_type=code&scope=basic_profile";
         }
 
-        // Überprüfen, ob der Autorisierungscode in der URL vorhanden ist
-        var urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.has('code')) {
-            var authorizationCode = urlParams.get('code');
+        // Function to decode the JWT token and display the displayname
+        function decodeToken(token) {
+            // Decode the payload of the token
+            const payload = JSON.parse(atob(token.split('.')[1]));
 
-            // Funktion zum Abrufen des Access Tokens
-            function getAccessToken(authorizationCode) {
-                // Konstruiere die URL zum Token-Endpunkt
-                var tokenEndpoint = "https://api.epicgames.dev/epic/oauth/v2/token";
-                var clientId = "xyza7891D9UWmFmhLv4Qyprz2w9AQiof";
-                var clientSecret = "ECRK8EM/omdhRyf+Wa6IjLeNdvUHNka67Dsn3Qn0L4A";
+            // Extract the displayname from the payload
+            const displayName = payload.dn;
 
-                // Konstruiere die Anfrage
-                var formData = new FormData();
-                formData.append("grant_type", "authorization_code");
-                formData.append("code", authorizationCode);
-                formData.append("client_id", clientId);
-                formData.append("client_secret", clientSecret);
+            // Update the button text to display the displayname
+            document.getElementById("loggedInMessage").innerText = "Logged in as " + displayName;
+        }
 
-                // Senden der Anfrage
-                fetch(tokenEndpoint, {
-                    method: 'POST',
-                    body: formData
-                })
-                .then(response => response.json())
-                .then(data => {
-                    // Extrahiere den Access Token und rufe die Funktion zur Anzeige des Displaynamens auf
-                    var accessToken = data.access_token;
-                    displayDisplayName(accessToken);
-                })
-                .catch(error => console.error('Error:', error));
-            }
-
-            // Funktion zum Abrufen und Anzeigen des Displaynamens
-            function displayDisplayName(accessToken) {
-                // Konstruiere die URL zum Abrufen der Benutzerdaten
-                var profileEndpoint = "https://api.epicgames.dev/epic/v1/account";
-                
-                // Senden der Anfrage mit dem Access Token im Authorization-Header
-                fetch(profileEndpoint, {
-                    method: 'GET',
-                    headers: {
-                        'Authorization': 'Bearer ' + accessToken
-                    }
-                })
-                .then(response => response.json())
-                .then(data => {
-                    // Extrahiere den Displaynamen und zeige ihn an
-                    var displayName = data.displayName;
-                    document.getElementById("loggedInMessage").innerText = "Eingeloggt als " + displayName;
-                })
-                .catch(error => console.error('Error:', error));
-            }
-
-            // Rufe die Funktion zum Abrufen des Access Tokens auf
-            getAccessToken(authorizationCode);
+        // Check if there's an authorization code in the URL (returned from Epic Games after login)
+        const urlParams = new URLSearchParams(window.location.search);
+        const code = urlParams.get('code');
+        
+        if (code) {
+            // Make a request to the token endpoint to exchange the code for an access token
+            fetch('https://api.epicgames.dev/epic/oauth/v2/token', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                    'Authorization': 'Basic {your_client_credentials}' // Replace with your client credentials
+                },
+                body: 'grant_type=authorization_code&code=' + code
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Extract the access token from the response
+                const accessToken = data.access_token;
+                // Decode the access token and display the displayname
+                decodeToken(accessToken);
+            })
+            .catch(error => console.error('Error:', error));
         }
     </script></html>
