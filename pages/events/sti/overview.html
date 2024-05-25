@@ -201,17 +201,16 @@ padding: 6px;
         </div></div>
     
 </body><script>
-const epicOAuthURL = 'https://www.epicgames.com/id/authorize'; // Hier die tatsächliche URL einfügen
-const clientID = 'xyza7891D9UWmFmhLv4Qyprz2w9AQiof'; // Hier deine Epic Client-ID einfügen
+const epicOAuthURL = 'https://api.epicgames.dev/epic/oauth/v2/token'; // Endpoint zur Token-Erstellung
+const clientID = 'DEINE_CLIENT_ID'; // Hier deine Epic Client-ID einfügen
+const clientSecret = 'DEIN_CLIENT_SECRET'; // Hier dein Epic Client Secret einfügen
 const accessTokenKey = 'epicAccessToken';
 
 const loginButton = document.getElementById('loginButton');
-const usernameDisplay = document.getElementById('usernameDisplay');
 
-// Funktion zum Lesen des Access Tokens aus dem URL-Parameter
-function getAccessTokenFromUrl() {
-    const urlParams = new URLSearchParams(window.location.hash.substring(1));
-    return urlParams.get('access_token');
+// Funktion zum Lesen des Access Tokens aus dem Local Storage
+function getAccessTokenFromLocalStorage() {
+    return localStorage.getItem(accessTokenKey);
 }
 
 // Funktion zum Speichern des Access Tokens im Local Storage
@@ -219,39 +218,65 @@ function saveAccessTokenToLocalStorage(token) {
     localStorage.setItem(accessTokenKey, token);
 }
 
-// Funktion zum Laden des Access Tokens aus dem Local Storage
-function loadAccessTokenFromLocalStorage() {
-    return localStorage.getItem(accessTokenKey);
-}
-
 // Funktion zum Laden des Benutzernamens
 async function loadUsername() {
-    const accessToken = loadAccessTokenFromLocalStorage();
+    const accessToken = getAccessTokenFromLocalStorage();
     if (accessToken) {
         try {
-            const response = await axios.get('https://YOUR_EPIC_API_ENDPOINT/userinfo', {
-                headers: {
-                    'Authorization': `Bearer ${accessToken}`
-                }
-            });
-            const username = response.data.username;
-            usernameDisplay.textContent = `Logged in as: ${username}`;
+            const tokenPayload = await parseJwt(accessToken);
+            const displayName = tokenPayload.dn; // Display Name aus dem Token
+            loginButton.textContent = `Logged in as ${displayName}`;
         } catch (error) {
-            console.error('Error loading username:', error);
+            console.error('Fehler beim Laden des Benutzernamens:', error);
         }
     }
+}
+
+// Funktion zum Parsen des JWTs
+async function parseJwt(token) {
+    const jwtPayload = token.split('.')[1];
+    const decodedPayload = decodeURIComponent(atob(jwtPayload).split('').map(c => '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)).join(''));
+    return JSON.parse(decodedPayload);
+}
+
+// Funktion zum Ausführen der Authentifizierung über Epic mit dem Autorisierungscode
+async function authenticateWithEpic(authorizationCode) {
+    try {
+        const response = await axios.post(epicOAuthURL, {
+            grant_type: 'authorization_code',
+            deployment_id: 'foo',
+            code: authorizationCode
+        }, {
+            auth: {
+                username: clientID,
+                password: clientSecret
+            }
+        });
+
+        const accessToken = response.data.access_token;
+        saveAccessTokenToLocalStorage(accessToken);
+        loadUsername();
+    } catch (error) {
+        console.error('Fehler beim Authentifizieren:', error);
+    }
+}
+
+loginButton.addEventListener('click', () => {
+    const authorizationCode = getAuthorizationCodeFromUrl();
+    if (authorizationCode) {
+        authenticateWithEpic(authorizationCode);
+    } else {
+        console.error('Autorisierungscode nicht gefunden.');
+    }
+});
+
+// Funktion zum Lesen des Autorisierungscodes aus der URL
+function getAuthorizationCodeFromUrl() {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get('code');
 }
 
 // Beim Laden der Seite prüfen, ob ein Access Token vorhanden ist und den Benutzernamen laden
 window.onload = loadUsername();
 
-loginButton.addEventListener('click', () => {
-    window.location.href = `${epicOAuthURL}?client_id=${clientID}&redirect_uri=${window.location.href}&response_type=code`;
-});
-
-// Nach erfolgreicher Anmeldung den Access Token aus der URL lesen und speichern
-const accessToken = getAccessTokenFromUrl();
-if (accessToken) {
-    saveAccessTokenToLocalStorage(accessToken);
-}
 </script></html>
